@@ -1,6 +1,6 @@
 'use client'
 
-import { Input } from '@nextui-org/react'
+import { Input, Avatar } from '@nextui-org/react'
 
 export const getGamesFromQuery = (games) => {
 	return games.map((game) => {
@@ -15,5 +15,11 @@ export const getGamesFromQuery = (games) => {
 }
 
 export const SearchBar = () => {
-	return <Input bordered labelPlaceholder="Search..." />
+	return (
+		<Input clearable className="border-white " labelPlaceholder="Search..." />
+	)
+}
+
+export const UserAvatar = ({ text }) => {
+	return <Avatar text={text} color="gradient" />
 }

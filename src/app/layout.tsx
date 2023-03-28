@@ -2,7 +2,7 @@ import './globals.css'
 import ProfileCard from '../components/Sidebar/ProfileCard'
 import Link from 'next/link'
 import Providers from './Providers'
-import { SearchBar } from '@/utilities/utilities'
+import { SearchBar, UserAvatar } from '@/utilities/utilities'
 
 export const metadata = {
 	title: 'Create Next App',
@@ -16,39 +16,45 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="flex flex-col bg-yellow-200">
+			<body className="flex flex-col overflow-hidden">
 				<Providers>
-					<header className="flex p-3">
-						<Link
-							href="/"
-							className="w-full text-4xl font-bold text-yellow-500"
-						>
-							Venato
-						</Link>
-						<SearchBar />
-						{/* 
-						<AccountAvatar /> */}
-					</header>
-					<div className="flex">
-						<nav className="flex flex-col justify-between bg-black w-[15%] min-w-[225px] p-4">
-							<div className="container flex flex-col ">
-								<div className="mb-4">
-									<Link
-										href="/"
-										className="w-full text-4xl font-bold text-yellow-500"
-									>
-										Venato
-									</Link>
-								</div>
-								<div className="container flex flex-col gap-3 pl-2 text-xl text-white">
-									<button className=" w-max">Want to Play</button>
-									<button className=" w-max">Owned Games</button>
-									<button className=" w-max">Consoles </button>
-								</div>
+					<div className="flex flex-col ">
+						<header className="flex items-center justify-between gap-3 p-3 px-6">
+							<div className="flex items-center gap-4">
+								<Link
+									href="/"
+									className="text-4xl font-bold mt-[-10px] text-yellow-500 "
+								>
+									Venato
+								</Link>
+								<SearchBar />
 							</div>
-							<ProfileCard />
-						</nav>
-						<main className="w-[calc(100%-225px)]">{children}</main>
+
+							<UserAvatar text="SM" />
+						</header>
+						<div className="flex ">
+							<nav className="flex flex-col justify-between bg-black w-[15%] min-w-[225px] p-4">
+								<div className="container flex flex-col ">
+									{/* <div className="mb-4">
+										<Link
+											href="/"
+											className="w-full text-4xl font-bold text-yellow-500"
+										>
+											Venato
+										</Link>
+									</div> */}
+									<div className="container flex flex-col gap-3 pl-2 text-xl text-white">
+										<button className=" w-max">Want to Play</button>
+										<button className=" w-max">Owned Games</button>
+										<button className=" w-max">Consoles </button>
+									</div>
+								</div>
+								{/* <ProfileCard /> */}
+							</nav>
+							<main className="w-[calc(100%-225px)] h-[calc(100vh-64.5px)] overflow-y-auto ">
+								<div className="">{children}</div>
+							</main>
+						</div>
 					</div>
 				</Providers>
 			</body>

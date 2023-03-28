@@ -16,8 +16,7 @@ function CenterStageCarousel(props) {
 		).then((res) => res.json())
 	)
 	console.log(process.env.NEXT_PUBLIC_RawgAPIKey)
-	if (isLoading)
-		return <div className="w-screen h-screen bg-white">loading...</div>
+	if (isLoading) return <div className="w-screen bg-white">loading...</div>
 
 	const games = getGamesFromQuery(data.results)
 
