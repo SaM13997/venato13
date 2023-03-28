@@ -1,3 +1,7 @@
+'use client'
+
+import { Input } from '@nextui-org/react'
+
 export const getGamesFromQuery = (games) => {
 	return games.map((game) => {
 		return {
@@ -8,4 +12,8 @@ export const getGamesFromQuery = (games) => {
 			rating: game.rating,
 		}
 	})
+}
+
+export const SearchBar = () => {
+	return <Input bordered labelPlaceholder="Search..." />
 }
