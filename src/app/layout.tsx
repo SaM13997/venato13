@@ -35,21 +35,12 @@ export default function RootLayout({
 						<div className="flex ">
 							<nav className="flex flex-col justify-between bg-black w-[15%] min-w-[225px] p-4">
 								<div className="container flex flex-col ">
-									{/* <div className="mb-4">
-										<Link
-											href="/"
-											className="w-full text-4xl font-bold text-yellow-500"
-										>
-											Venato
-										</Link>
-									</div> */}
 									<div className="container flex flex-col gap-3 pl-2 text-xl text-white">
 										<button className=" w-max">Want to Play</button>
 										<button className=" w-max">Owned Games</button>
 										<button className=" w-max">Consoles </button>
 									</div>
 								</div>
-								{/* <ProfileCard /> */}
 							</nav>
 							<main className="w-[calc(100%-225px)] h-[calc(100vh-64.5px)] overflow-y-auto ">
 								<div className="">{children}</div>

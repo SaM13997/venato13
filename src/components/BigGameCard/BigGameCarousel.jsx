@@ -2,7 +2,7 @@
 
 import { use } from 'react'
 import { useQuery } from 'react-query'
-import GameCardCenterStage from './GameCardCenterStage'
+import GameCardCenterStage from './BigGameCard'
 import Carousel from 'react-material-ui-carousel'
 import axios from 'axios'
 import { getGamesFromQuery } from '../../utilities/utilities'
@@ -21,11 +21,7 @@ function CenterStageCarousel(props) {
 	const games = getGamesFromQuery(data.results)
 
 	return (
-		<Carousel
-			sx={{ height: '100%' }}
-			interval="5000"
-			// indicatorContainerProps={{ className: 'bg-white h-[10px]' }}
-		>
+		<Carousel sx={{ height: '100%' }} interval="5000">
 			{games.map((game, i) => (
 				<GameCardCenterStage key={i} game={game} />
 			))}
