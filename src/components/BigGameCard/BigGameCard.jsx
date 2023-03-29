@@ -3,11 +3,13 @@ import { Button } from '@nextui-org/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import StarRating from './StarRating'
+import { MetacriticSquare } from '../../utilities/utilities'
 
 const GameCardCenterStage = ({ game }) => {
-	const { name, rating, bgImage } = game
+	let { name, rating, bgImage, metacritic } = game
 	console.log(bgImage)
 
+	// rating = 3.35
 	return (
 		<div className={`flex h-[77.5vh] `}>
 			<div
@@ -18,12 +20,13 @@ const GameCardCenterStage = ({ game }) => {
 			>
 				<div className="z-10 w-full">
 					<div className="left flex flex-col justify-end items-start p-8 gap-4      max-w-[1000px] h-full ">
+						<StarRating rating={rating} />
 						<p className="text-5xl font-bold">{name}</p>
 						<div className="flex items-center justify-center gap-4">
-							<div className="flex flex-col justify-between h-full pb-1 review-ratings">
+							{/* <div className="flex flex-col justify-between h-full pb-1 review-ratings">
 								<p className="m-0">Ratings: {rating}</p>
-								<StarRating stars={4} />
-							</div>
+								
+							</div> */}
 							<Button ghost size="lg" color="warning">
 								Add to Library
 							</Button>
@@ -31,9 +34,10 @@ const GameCardCenterStage = ({ game }) => {
 					</div>
 				</div>
 				<div className="z-10 flex items-start justify-end h-full p-8 right">
-					<button className="p-2 px-4 font-bold text-black bg-yellow-500 rounded-full cursor-pointer w-max">
+					{/* <button className="p-2 px-4 font-bold text-black bg-yellow-500 rounded-full cursor-pointer w-max">
 						Free to Play
-					</button>
+					</button> */}
+					<MetacriticSquare score={metacritic} />
 				</div>
 			</div>
 		</div>
