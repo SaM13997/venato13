@@ -1,12 +1,25 @@
 import axios from 'axios'
-export async function GET(request: Request) {
-	const data = await axios({
-		method: 'get',
-		url: `https://api.rawg.io/api/games?key=27fdc1adf5384b60b1b4c1f20e69ecec`,
-		params: {
-			key: '27fdc1adf5384b60b1b4c1f20e69ecec',
-		},
-	})
-	console.log({ data })
-	return data
+import { NextRequest, NextResponse } from 'next/server'
+export async function GET() {
+	const fetchData = async () => {
+		const url = 'https://api.rawg.io/api/games'
+		const key = '27fdc1adf5384b60b1b4c1f20e69ecec'
+
+		try {
+			const response = await fetch(`${url}?key=${key}`)
+
+			if (!response.ok) {
+				throw new Error('Request failed with status ' + response.status)
+			}
+
+			const data = await response.json()
+			return data
+		} catch (error: any) {
+			console.error('Error:', error.message)
+			throw error
+		}
+	}
+
+	const data = await fetchData()
+	return NextResponse.json({ data })
 }
