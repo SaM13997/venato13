@@ -8,9 +8,9 @@ import GameList from '../components/Games'
 export default function Home() {
 	return (
 		<div className="flex h-screen flex-col bg-[#111313]">
-			{/* <CenterStageCarousel />
-			<GameCardCarousel /> */}
-			<GameList />
+			<CenterStageCarousel />
+			<GameCardCarousel />
+			{/* <GameList /> */}
 		</div>
 	)
 }

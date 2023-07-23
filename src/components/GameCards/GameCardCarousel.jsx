@@ -39,7 +39,7 @@ function GameCards() {
 		},
 	]
 	return (
-		<div className="w-full h-[30vh] bg-black flex justify-center">
+		<div className="flex h-[30vh] w-full justify-center bg-black">
 			<Carousel
 				additionalTransfrom={0}
 				arrows

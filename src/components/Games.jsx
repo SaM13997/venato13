@@ -10,10 +10,7 @@ const fetchGames = async () => {
 }
 
 const GameList = () => {
-	// const { data, error, isLoading } = useQuery('games', fetchGames)
-
 	const { data, error, isLoading } = useQuery('posts', async () => {
-		// await new Promise((resolve) => setTimeout(resolve, 1000))
 		return axios.get('http://localhost:3000/api/games')
 	})
 	if (isLoading) {

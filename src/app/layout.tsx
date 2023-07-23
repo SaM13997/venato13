@@ -19,11 +19,11 @@ export default function RootLayout({
 			<body className="flex flex-col overflow-hidden">
 				<Providers>
 					<div className="flex flex-col ">
-						<header className="flex items-center justify-between gap-3 p-3 px-6">
+						<header className="flex items-center justify-between gap-3 bg-black p-3 px-6">
 							<div className="flex items-center gap-4">
 								<Link
 									href="/"
-									className="text-4xl font-bold mt-[-10px] text-yellow-500 "
+									className="mt-[-10px] text-4xl font-bold text-yellow-500 "
 								>
 									Venato
 								</Link>
@@ -33,17 +33,17 @@ export default function RootLayout({
 							<UserAvatar text="SM" />
 						</header>
 						<div className="flex ">
-							<nav className="flex flex-col justify-between bg-black w-[15%] min-w-[225px] p-4">
-								<div className="container flex flex-col ">
-									<div className="container flex flex-col gap-3 pl-2 text-xl text-white">
+							<nav className="flex h-screen w-60 min-w-[225px] flex-col justify-between bg-black p-4">
+								<div className=" flex flex-col ">
+									<div className=" flex flex-col gap-3 pl-2 text-xl text-white">
 										<button className=" w-max">Want to Play</button>
 										<button className=" w-max">Owned Games</button>
 										<button className=" w-max">Consoles </button>
 									</div>
 								</div>
 							</nav>
-							<main className="w-[calc(100%-225px)] h-[calc(100vh-64.5px)] overflow-y-auto ">
-								<div className="">{children}</div>
+							<main className="h-[calc(100vh-64.5px)] w-[calc(100%-225px)] overflow-y-auto bg-black text-white ">
+								<div className="h-full">{children}</div>
 							</main>
 						</div>
 					</div>

@@ -1,6 +1,8 @@
 'use client'
 
-import { Input, Avatar } from '@nextui-org/react'
+// import { Input, Avatar } from '@nextui-org/react'
+import { Input } from '@/components/ui/input'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { useState } from 'react'
 
 export const getGamesFromQuery = (games) => {
@@ -18,13 +20,19 @@ export const getGamesFromQuery = (games) => {
 
 export const SearchBar = () => {
 	return (
-		<Input clearable className="border-white " labelPlaceholder="Search..." />
+		<Input
+			type="text"
+			placeholder="Search"
+			className="border-gray-900 bg-[#141414] text-slate-100 "
+		/>
 	)
 }
 
-export const UserAvatar = ({ text }) => {
-	return <Avatar text={text} color="gradient" />
-}
+export const UserAvatar = ({ text }) => (
+	<Avatar>
+		<AvatarFallback>{text}</AvatarFallback>
+	</Avatar>
+)
 
 export const MetacriticSquare = ({ score }) => {
 	// const [bgColor, setBgColor] = useState('#66CC33')
@@ -42,7 +50,7 @@ export const MetacriticSquare = ({ score }) => {
 
 	return (
 		<div
-			className="flex items-center justify-center w-16 h-16 text-xl rounded-md square"
+			className="square flex h-16 w-16 items-center justify-center rounded-md text-xl"
 			style={{
 				backgroundColor: bgColor,
 			}}
