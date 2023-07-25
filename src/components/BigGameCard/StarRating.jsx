@@ -21,5 +21,5 @@ export default function StarRating(props) {
 	for (let i = 0; i < emptyStars; i++) {
 		starList.push(<FontAwesomeIcon icon={hollowStar} />)
 	}
-	return <div className="flex ratings ">{starList}</div>
+	return <div className="ratings flex text-2xl ">{starList}</div>
 }

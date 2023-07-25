@@ -1,41 +1,36 @@
+import Link from 'next/link'
 import React from 'react'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
+import Platforms from '../Platforms'
+import { FiArrowUpRight } from 'react-icons/fi'
+import { Button } from '@/components/ui/button'
 
 const GameCard = (props) => {
 	const { game } = props
+
 	return (
-		<Card className="relative flex flex-col items-start justify-end h-full bg-black">
-			<div className="absolute h-full">
-				<CardMedia
-					component="img"
-					image={game.image}
-					sx={{}}
-					alt="picture of the game"
+		<Link href="/demo">
+			<div className="overflow-hidden rounded-2xl border border-slate-950 shadow-md">
+				<img
+					src={game.bgImage}
+					className="aspect-video h-[220px] object-cover"
+					alt=""
 				/>
+				<div className="  bg-zinc-900 p-3 text-xl">
+					<p className="truncate">{game.name}</p>
+					<div className=" mt-4 flex w-full items-center justify-between">
+						<Platforms platforms={game.platforms} />
+						<Link href={`/game/${game.id}`}>
+							<Button
+								variant="ghost"
+								className="rounded-full border border-amber-500 text-amber-500 hover:bg-amber-500"
+							>
+								<FiArrowUpRight />
+							</Button>
+						</Link>
+					</div>
+				</div>
 			</div>
-			<CardContent
-				className="flex items-center justify-start w-full p-3 text-white truncate "
-				sx={{
-					background: 'rgba( 0, 0, 0, 0.45 )',
-					boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
-					backdropFilter: 'blur( 4px )',
-				}}
-			>
-				<Typography
-					gutterBottom
-					variant="p"
-					component="div"
-					className="m-0 truncate "
-				>
-					{game.title}
-				</Typography>
-			</CardContent>
-		</Card>
+		</Link>
 	)
 }
 

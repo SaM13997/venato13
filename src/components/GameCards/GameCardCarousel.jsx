@@ -1,52 +1,38 @@
 'use client'
 
+import { useQuery } from 'react-query'
 import React from 'react'
 import GameCard from './GameCard'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
+import { getGamesFromQuery } from '@/utilities/utilities'
+import axios from 'axios'
 
 function GameCards() {
-	const dummyGames = [
-		{
-			title: 'Vampire: The Masquerade - Bloodlines 2',
-			image:
-				'https://media.rawg.io/media/crop/600/400/games/fb5/fb5e0fdb1f6bb0e8b5da5d08bb83a5fc.jpg',
-		},
-		{
-			title: 'Ghostwire: Tokyo',
-			image:
-				'https://media.rawg.io/media/crop/600/400/games/e85/e851f527ab0658519436342ee73da191.jpg',
-		},
-		{
-			title: 'S.T.A.L.K.E.R. 2: Heart of Chernobyl',
-			image:
-				'https://media.rawg.io/media/crop/600/400/games/3e8/3e81585ecda204d4f4b80a041b069adb.jpg',
-		},
-		{
-			title: "Senua's Saga: Hellblade II",
-			image:
-				'https://media.rawg.io/media/crop/600/400/games/85d/85dc9149fe3d2c9fed5d0d73cd9940f7.jpg',
-		},
-		{
-			title: 'V Rising',
-			image:
-				'https://media.rawg.io/media/crop/600/400/games/bde/bdef96f7782fba0ff62dabc37ff4b1f0.jpg',
-		},
-		{
-			title: 'Trek to Yomi',
-			image:
-				'https://media.rawg.io/media/crop/600/400/games/bc5/bc53067cffecb71129fcb0b4fbf0e922.jpg',
-		},
-	]
+	const { data, error, isLoading } = useQuery('NewReleasedGames', async () => {
+		return axios.get('http://localhost:3000/api/newReleased')
+	})
+	if (isLoading) {
+		return <div className="h-full">Loading... the games bruh</div>
+	}
+
+	if (error) {
+		return <p>Error: {error.message}</p>
+	}
+
+	const games = data.data
+	// console.log(games.data.results)
+	const filteredGames = getGamesFromQuery(games.data.results)
+
 	return (
-		<div className="flex h-[30vh] w-full justify-center bg-black">
+		<div className="flex w-full justify-center ">
 			<Carousel
 				additionalTransfrom={0}
 				arrows
 				autoPlaySpeed={3000}
 				centerMode={false}
 				className=""
-				containerClass="container p-3"
+				containerClass="container p-3 h-full fesesf"
 				customLeftArrow={false}
 				customRightArrow={false}
 				dotListClass=""
@@ -95,7 +81,7 @@ function GameCards() {
 				slidesToSlide={1}
 				swipeable={false}
 			>
-				{dummyGames.map((game, index) => (
+				{filteredGames.map((game, index) => (
 					<GameCard game={game} index={index} />
 				))}
 			</Carousel>

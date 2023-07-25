@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 body {
-	background-color: #000;
+	background-color: #0f0f0f;
+}
+
+.main-carousel > div > div:last-child {
+	display: none;
 }
 
 @layer base {

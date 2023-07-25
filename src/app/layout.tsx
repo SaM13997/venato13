@@ -3,6 +3,8 @@ import ProfileCard from '../components/Sidebar/ProfileCard'
 import Link from 'next/link'
 import Providers from './Providers'
 import { SearchBar, UserAvatar } from '@/utilities/utilities'
+import { BsController, BsBox2HeartFill } from 'react-icons/bs'
+import { MdDoneAll } from 'react-icons/md'
 
 export const metadata = {
 	title: 'Create Next App',
@@ -19,7 +21,7 @@ export default function RootLayout({
 			<body className="flex flex-col overflow-hidden">
 				<Providers>
 					<div className="flex flex-col ">
-						<header className="flex items-center justify-between gap-3 bg-black p-3 px-6">
+						<header className="flex items-center justify-between gap-3  p-3 px-6">
 							<div className="flex items-center gap-4">
 								<Link
 									href="/"
@@ -33,16 +35,24 @@ export default function RootLayout({
 							<UserAvatar text="SM" />
 						</header>
 						<div className="flex ">
-							<nav className="flex h-screen w-60 min-w-[225px] flex-col justify-between bg-black p-4">
+							<nav className="flex h-screen w-60 min-w-[225px] flex-col justify-between border-r-2 border-r-slate-900/20  p-4">
 								<div className=" flex flex-col ">
-									<div className=" flex flex-col gap-3 pl-2 text-xl text-white">
-										<button className=" w-max">Want to Play</button>
-										<button className=" w-max">Owned Games</button>
-										<button className=" w-max">Consoles </button>
+									<div className=" flex flex-col gap-3 pl-2 text-xl text-slate-100">
+										<button className=" w-max">
+											<BsController className="mb-1 mr-2 inline" /> Want to Play
+										</button>
+										<button className=" w-max">
+											<BsBox2HeartFill className="mb-1 mr-2 inline" /> Owned
+											Games
+										</button>
+										<button className=" w-max">
+											<MdDoneAll className="mb-1 mr-2 inline" />
+											Completed
+										</button>
 									</div>
 								</div>
 							</nav>
-							<main className="h-[calc(100vh-64.5px)] w-[calc(100%-225px)] overflow-y-auto bg-black text-white ">
+							<main className="h-[calc(100vh-64.5px)] w-[calc(100%-225px)] overflow-y-auto  text-white ">
 								<div className="h-full">{children}</div>
 							</main>
 						</div>

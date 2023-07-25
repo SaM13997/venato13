@@ -7,7 +7,7 @@ import axios from 'axios'
 import { getGamesFromQuery } from '@/utilities/utilities'
 
 function CenterStageCarousel(props) {
-	const { data, error, isLoading } = useQuery('posts', async () => {
+	const { data, error, isLoading } = useQuery('CenterCardGames', async () => {
 		return axios.get('http://localhost:3000/api/games')
 	})
 	if (isLoading) {

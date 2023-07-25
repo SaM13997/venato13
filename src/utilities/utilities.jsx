@@ -5,8 +5,15 @@ import { Input } from '@/components/ui/input'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { useState } from 'react'
 
+const platformsArrayCreator = (platformParentArray) => {
+	return platformParentArray.map((entry) => {
+		return entry?.platform?.name
+	})
+}
+
 export const getGamesFromQuery = (games) => {
 	return games.map((game) => {
+		// console.log('platform Array', platformsArrayCreator(game.parent_platforms))
 		return {
 			id: game.id,
 			slug: game.slug,
@@ -14,6 +21,10 @@ export const getGamesFromQuery = (games) => {
 			bgImage: game.background_image,
 			rating: game.rating,
 			metacritic: game.metacritic,
+			released: game.released,
+			platforms: platformsArrayCreator(game.parent_platforms),
+			genres: game.genres,
+			screenshots: game.short_screenshorts,
 		}
 	})
 }
@@ -23,7 +34,7 @@ export const SearchBar = () => {
 		<Input
 			type="text"
 			placeholder="Search"
-			className="border-gray-900 bg-[#141414] text-slate-100 "
+			className="border-gray-900 bg-[#e7e7e7] text-slate-100 "
 		/>
 	)
 }
