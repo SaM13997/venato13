@@ -14,13 +14,13 @@ const GameCardCenterStage = ({ game }) => {
 	})
 
 	return (
-		<div className={`flex h-[77.5vh]`}>
+		<div className={`flex h-[77.5vh] overflow-visible p-2 pt-[2px]`}>
 			<div
 				style={{
 					backgroundImage: `url(${bgImage})`,
 					borderRadius: '16px',
 				}}
-				className={` game-card-content flex h-full w-full text-white ${style.bgimage} shadow-md`}
+				className={` game-card-content flex h-full w-full text-white ${style.bgimage} overflow-hidden outline outline-2 outline-amber-500/70`}
 			>
 				<div className="z-10 w-full">
 					<div className="left flex h-full max-w-[1000px] flex-col items-start justify-end gap-4  ">

@@ -25,14 +25,16 @@ function GameCards() {
 	const filteredGames = getGamesFromQuery(games.data.results)
 
 	return (
-		<div className="flex w-full justify-center ">
+		<div className="flex w-full flex-col justify-center ">
+			<p className="my-3 pl-12 text-4xl">Newly Released</p>
+
 			<Carousel
 				additionalTransfrom={0}
 				arrows
 				autoPlaySpeed={3000}
 				centerMode={false}
 				className=""
-				containerClass="container p-3 h-full fesesf"
+				containerClass="container p-3 pb-0 h-full"
 				customLeftArrow={false}
 				customRightArrow={false}
 				dotListClass=""

@@ -51,9 +51,9 @@ export const MetacriticSquare = ({ score }) => {
 		return null
 	}
 	let bgColor
-	if (score > 75) {
+	if (score >= 75) {
 		bgColor = '#66CC33'
-	} else if (score < 75 && score > 50) {
+	} else if (score < 75 && score >= 50) {
 		bgColor = '#FFCC33'
 	} else if (score < 50) {
 		bgColor = '#FF0000'
@@ -61,7 +61,7 @@ export const MetacriticSquare = ({ score }) => {
 
 	return (
 		<div
-			className="square flex h-16 w-16 items-center justify-center rounded-bl-md text-xl shadow-md"
+			className="square flex h-16 w-16 items-center justify-center rounded-bl-md text-xl shadow-md shadow-slate-800"
 			style={{
 				backgroundColor: bgColor,
 			}}

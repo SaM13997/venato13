@@ -9,6 +9,8 @@ export function ButtonGhost() {
 	return <Button variant="ghost">Ghost</Button>
 }
 
+// Todo: <MdGames /> for consoles category in navbar; for future ref
+
 const platformToIconMap = {
 	PC: () => <AiFillWindows />,
 	PlayStation: () => <FaPlaystation />,
