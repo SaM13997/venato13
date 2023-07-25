@@ -27,9 +27,7 @@ export default function Sidebar(props) {
 		},
 	]
 	// const [drawerState, setDrawerState] = useState(true)
-	return (
-		
-	)
+	return <div></div>
 }
 
 {

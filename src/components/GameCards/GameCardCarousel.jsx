@@ -84,7 +84,7 @@ function GameCards() {
 				swipeable={false}
 			>
 				{filteredGames.map((game, index) => (
-					<GameCard game={game} index={index} />
+					<GameCard game={game} key={index} />
 				))}
 			</Carousel>
 		</div>

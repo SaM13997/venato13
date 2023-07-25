@@ -23,8 +23,8 @@ function CenterStageCarousel(props) {
 	const filteredGames = getGamesFromQuery(games.data.results)
 	return (
 		<Carousel sx={{ height: '100%' }} interval="5000">
-			{filteredGames.map((game) => (
-				<GameCardCenterStage game={game} />
+			{filteredGames.map((game, i) => (
+				<GameCardCenterStage key={i} game={game} />
 			))}
 		</Carousel>
 	)

@@ -4,11 +4,6 @@ import { GrAppleAppStore } from 'react-icons/gr'
 import { BsAndroid2, BsNintendoSwitch } from 'react-icons/bs'
 import { SiAtari } from 'react-icons/si'
 import { TbWorldWww } from 'react-icons/tb'
-
-export function ButtonGhost() {
-	return <Button variant="ghost">Ghost</Button>
-}
-
 // Todo: <MdGames /> for consoles category in navbar; for future ref
 
 const platformToIconMap = {
