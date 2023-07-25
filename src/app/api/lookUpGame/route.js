@@ -5,10 +5,10 @@ export async function GET(req, res) {
 		const client_id = 'zm1q09qmyhsfoi25k3h3tfoi2g1t3o'
 		const auth_token = 'Bearer 97ix6j43i70u071ejxf7pqrlwxriqd'
 		const url = 'https://api.igdb.com/v4/games'
-    const { searchParams } = new URL(req.url)
-    const search = searchParams.get('search')
+		const { searchParams } = new URL(req.url)
+		const search = searchParams.get('search') || ''
 
-    console.log({search});
+		console.log({ search })
 		const headers = {
 			'Client-ID': client_id,
 			Authorization: auth_token,
