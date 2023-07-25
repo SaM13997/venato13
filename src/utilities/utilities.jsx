@@ -61,7 +61,7 @@ export const MetacriticSquare = ({ score }) => {
 
 	return (
 		<div
-			className="square flex h-16 w-16 items-center justify-center rounded-md text-xl"
+			className="square flex h-16 w-16 items-center justify-center rounded-bl-md text-xl shadow-md"
 			style={{
 				backgroundColor: bgColor,
 			}}

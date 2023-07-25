@@ -10,7 +10,7 @@ import axios from 'axios'
 
 function GameCards() {
 	const { data, error, isLoading } = useQuery('NewReleasedGames', async () => {
-		return axios.get('http://localhost:3000/api/newReleased')
+		return axios.get('/api/newReleased')
 	})
 	if (isLoading) {
 		return <div className="h-full">Loading... the games bruh</div>

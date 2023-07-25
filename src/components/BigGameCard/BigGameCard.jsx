@@ -55,7 +55,7 @@ const GameCardCenterStage = ({ game }) => {
 						</div>
 					</div>
 				</div>
-				<div className="right z-10 flex h-full items-start justify-end p-8">
+				<div className="right z-10 flex h-full items-start justify-end">
 					{/* <button className="p-2 px-4 font-bold text-black bg-yellow-500 rounded-full cursor-pointer w-max">
 						Free to Play
 					</button> */}
