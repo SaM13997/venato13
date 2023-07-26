@@ -9,8 +9,11 @@ import { getGamesFromQuery } from '@/utilities/utilities'
 import axios from 'axios'
 
 function GameCards() {
+	const today = new Date().toLocaleString('en-CA', {
+		dateStyle: 'short',
+	})
 	const { data, error, isLoading } = useQuery('NewReleasedGames', async () => {
-		return axios.get('/api/newReleased')
+		return axios.get(`/api/newReleased?today=${today}`)
 	})
 	if (isLoading) {
 		return <div className="h-full">Loading... the games bruh</div>

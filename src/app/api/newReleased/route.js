@@ -1,17 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-export async function GET() {
+export async function GET(req, res) {
 	const fetchData = async () => {
 		const url = 'https://api.rawg.io/api/games'
 		const key = process.env.RawgAPIKey
-
-		const today = new Date().toLocaleString('en-CA', {
-			dateStyle: 'short',
-		})
-
+		const { searchParams } = new URL(req.url)
+		const dateFromQuery = searchParams.get('today')
 		try {
 			const response = await fetch(
-				`${url}?key=${key}&ordering=-rating
-        `
+				`${url}?key=${key}&ordering=-rating&dates=2022-01-01,${dateFromQuery}`
 			)
 			//  &dates=2022-01-01,${today}&ordering=-rating
 			if (!response.ok) {
@@ -19,7 +15,6 @@ export async function GET() {
 			}
 
 			const data = await response.json()
-			console.log({ data })
 			return data
 		} catch (error) {
 			console.error('Error:', error.message)

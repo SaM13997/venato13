@@ -7,8 +7,11 @@ import axios from 'axios'
 import { getGamesFromQuery } from '@/utilities/utilities'
 
 function CenterStageCarousel(props) {
+	const today = new Date().toLocaleString('en-CA', {
+		dateStyle: 'short',
+	})
 	const { data, error, isLoading } = useQuery('CenterCardGames', async () => {
-		return axios.get('/api/games')
+		return axios.get(`/api/games?today=${today}`)
 	})
 	if (isLoading) {
 		return <div className="h-full">Loading... the games bruh</div>
