@@ -10,10 +10,10 @@ export async function GET() {
 
 		try {
 			const response = await fetch(
-				`${url}?key=${key}&dates=2022-01-01,${today}&ordering=-rating`,
-				{ cache: 'no-store' }
+				`${url}?key=${key}
+        `
 			)
-
+			//  &dates=2022-01-01,${today}&ordering=-rating
 			if (!response.ok) {
 				throw new Error('Request failed with status ' + response.status)
 			}
