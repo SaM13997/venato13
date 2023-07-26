@@ -10,7 +10,7 @@ export async function GET() {
 
 		try {
 			const response = await fetch(
-				`${url}?key=${key}
+				`${url}?key=${key}&ordering=-rating
         `
 			)
 			//  &dates=2022-01-01,${today}&ordering=-rating
