@@ -21,7 +21,7 @@ export default function RootLayout({
 			<body className="flex h-screen flex-col overflow-hidden">
 				<Providers>
 					<div className="flex h-full flex-col">
-						<header className="flex items-center justify-between gap-3 p-3 px-6 shadow-md shadow-gray-800">
+						<header className="flex items-center justify-between gap-3 p-3 px-6 shadow-md shadow-zinc-800">
 							<div className="flex items-center gap-4">
 								<Link
 									href="/"

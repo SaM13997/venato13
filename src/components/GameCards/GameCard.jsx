@@ -3,6 +3,7 @@ import React from 'react'
 import Platforms from '../Platforms'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 const GameCard = (props) => {
 	const { game } = props
@@ -10,7 +11,9 @@ const GameCard = (props) => {
 	return (
 		<Link href="/demo">
 			<div className="overflow-hidden rounded-2xl border border-slate-950 shadow-md">
-				<img
+				<Image
+					width="1450"
+					height="720"
 					src={game.bgImage}
 					className="aspect-video h-[220px] object-cover"
 					alt=""
