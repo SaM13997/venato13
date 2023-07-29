@@ -18,7 +18,7 @@ const GameCard = (props) => {
 					className="aspect-video h-[220px] object-cover"
 					alt=""
 				/>
-				<div className="  bg-zinc-900 p-3 text-xl">
+				<div className="bg-zinc-900 p-3 text-xl">
 					<p className="truncate">{game.name}</p>
 					<div className=" mt-4 flex w-full items-center justify-between">
 						<Platforms platforms={game.platforms} />
