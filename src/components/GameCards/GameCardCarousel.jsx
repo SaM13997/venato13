@@ -5,7 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
 import GameCard from './GameCard'
 import Carousel from 'react-multi-carousel'
-import LazyLoadingCarousel from '../../utilities/Carousel'
+import LazyLoadingCarousel from '../GameCards/LoadingFallback'
 import 'react-multi-carousel/lib/styles.css'
 import { getGamesFromQuery } from '@/utilities/utilities'
 import axios from 'axios'
@@ -21,7 +21,7 @@ function GameCards(props) {
 		return (
 			<div>
 				<div className="container mx-auto h-full w-full gap-4 p-3 pb-0">
-					<Skeleton className="mb-3 ml-12 mt-5 h-10 w-64 rounded-full" />
+					<Skeleton className="mb-3 mt-5 h-10 w-64 rounded-full" />
 					<LazyLoadingCarousel />
 				</div>
 			</div>

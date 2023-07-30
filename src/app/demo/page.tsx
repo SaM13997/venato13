@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
-import Carousel from '../../utilities/Carousel'
+import Carousel from '../../components/GameCards/LoadingFallback'
 function Main() {
 	return (
 		// <div className="flex-col flex items-start  p-2.5 ">
