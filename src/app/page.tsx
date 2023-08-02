@@ -1,20 +1,15 @@
+import dayjs from 'dayjs'
 import CenterStageCarousel from '../components/BigGameCard/BigGameCarousel'
 import GameCardCarousel from '../components/GameCards/GameCardCarousel'
 import GameList from '../components/Games'
 
 export default function Home() {
 	const newReleasedGamesQueryKey = 'NewReleasedGames'
-	const newReleasedGamesQueryUrl = `/api/newReleased?today=${new Date().toLocaleString(
-		'en-CA',
-		{
-			dateStyle: 'short',
-		}
+	const newReleasedGamesQueryUrl = `/api/newReleased?today=${dayjs().format(
+		'DD-MM-YYYY'
 	)}`
-	console.log(
-		new Date().toLocaleString('en-CA', {
-			dateStyle: 'short',
-		})
-	)
+
+	// const today = dayjs().format('DD-MM-YYYY')
 
 	return (
 		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
