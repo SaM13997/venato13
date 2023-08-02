@@ -9,8 +9,6 @@ export default function Home() {
 		'DD-MM-YYYY'
 	)}`
 
-	// const today = dayjs().format('DD-MM-YYYY')
-
 	return (
 		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
 			<div className=" main-carousel rounded-xl ">
