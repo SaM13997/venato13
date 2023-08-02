@@ -6,7 +6,7 @@ import GameList from '../components/Games'
 export default function Home() {
 	const newReleasedGamesQueryKey = 'NewReleasedGames'
 	const newReleasedGamesQueryUrl = `/api/newReleased?today=${dayjs().format(
-		'DD-MM-YYYY'
+		'YYYY-MM-DD'
 	)}`
 
 	return (
