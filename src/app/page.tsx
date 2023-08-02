@@ -10,6 +10,11 @@ export default function Home() {
 			dateStyle: 'short',
 		}
 	)}`
+	console.log(
+		new Date().toLocaleString('en-CA', {
+			dateStyle: 'short',
+		})
+	)
 
 	return (
 		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
