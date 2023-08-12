@@ -1,14 +1,14 @@
-'use client'
-
 // import { Input, Avatar } from '@nextui-org/react'
 import { Input } from '@/components/ui/input'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { useState } from 'react'
 
 const platformsArrayCreator = (platformParentArray) => {
-	return platformParentArray.map((entry) => {
-		return entry?.platform?.name
-	})
+	if (platformParentArray) {
+		console.log(platformParentArray)
+		return platformParentArray.map((entry) => {
+			return entry?.platform?.name
+		})
+	}
 }
 
 export const getGamesFromQuery = (games) => {
@@ -18,13 +18,13 @@ export const getGamesFromQuery = (games) => {
 			id: game.id,
 			slug: game.slug,
 			name: game.name,
-			bgImage: game.background_image,
-			rating: game.rating,
-			metacritic: game.metacritic,
-			released: game.released,
-			platforms: platformsArrayCreator(game.parent_platforms),
-			genres: game.genres,
-			screenshots: game.short_screenshorts,
+			bgImage: game.background_image || '',
+			rating: game.rating || 'TBA',
+			metacritic: game.metacritic || 'TBA',
+			released: game.released || 'TBA',
+			platforms: platformsArrayCreator(game?.parent_platforms) || 'TBA',
+			genres: game.genres || 'TBA',
+			screenshots: game.short_screenshorts || 'TBA',
 		}
 	})
 }

@@ -12,11 +12,13 @@ import axios from 'axios'
 
 function GameCards(props) {
 	const { queryKey, queryUrl, headingText } = props
+	// console.log(headingText, queryKey, queryUrl)
 	const queryFn = async () => {
 		return axios.get(queryUrl)
 	}
 	const { data, isLoading, error } = useQuery({ queryKey, queryFn })
 
+	// console.log(data)
 	if (isLoading) {
 		return (
 			<div>
@@ -37,6 +39,7 @@ function GameCards(props) {
 	}
 
 	const games = data.data
+	console.log({ games })
 	const filteredGames = getGamesFromQuery(games.data.results)
 
 	return (

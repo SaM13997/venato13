@@ -8,6 +8,14 @@ export default function Home() {
 	const newReleasedGamesQueryUrl = `/api/newReleased?today=${dayjs().format(
 		'YYYY-MM-DD'
 	)}`
+	const upcomingGamesQueryKey = 'UpcomingGames'
+	const upcomingGamesQueryUrl = `/api/upcomingGames?today=${dayjs().format(
+		'YYYY-MM-DD'
+	)}`
+	// const newReleasedGamesQueryKey = 'NewReleasedGames'
+	// const newReleasedGamesQueryUrl = `/api/newReleased?today=${dayjs().format(
+	// 	'YYYY-MM-DD'
+	// )}`
 
 	return (
 		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
@@ -15,16 +23,21 @@ export default function Home() {
 				<CenterStageCarousel />
 			</div>
 
-			<div className=" ">
-				{/* <Suspense fallback={<LoadingFallback />}> */}
-				<GameCardCarousel
-					queryKey={newReleasedGamesQueryKey}
-					queryUrl={newReleasedGamesQueryUrl}
-					headingText="Newly Released"
-				/>
-				{/* </Suspense> */}
-			</div>
-			{/* <GameList /> */}
+			<GameCardCarousel
+				queryKey={newReleasedGamesQueryKey}
+				queryUrl={newReleasedGamesQueryUrl}
+				headingText="Newly Released"
+			/>
+			<GameCardCarousel
+				queryKey={upcomingGamesQueryKey}
+				queryUrl={upcomingGamesQueryUrl}
+				headingText="Upcoming Games"
+			/>
+			{/* <GameCardCarousel
+				queryKey={newReleasedGamesQueryKey}
+				queryUrl={newReleasedGamesQueryUrl}
+				headingText="Newly Released"	
+			/> */}
 		</div>
 	)
 }
