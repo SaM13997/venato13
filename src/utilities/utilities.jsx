@@ -4,7 +4,6 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 const platformsArrayCreator = (platformParentArray) => {
 	if (platformParentArray) {
-		console.log(platformParentArray)
 		return platformParentArray.map((entry) => {
 			return entry?.platform?.name
 		})

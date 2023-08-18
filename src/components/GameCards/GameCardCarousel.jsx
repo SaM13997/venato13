@@ -39,7 +39,6 @@ function GameCards(props) {
 	}
 
 	const games = data.data
-	console.log({ games })
 	const filteredGames = getGamesFromQuery(games.data.results)
 
 	return (
