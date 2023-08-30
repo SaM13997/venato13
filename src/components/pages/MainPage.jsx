@@ -17,23 +17,23 @@ function Main() {
 			queryUrl: `/api/upcomingGames?today=${today}`,
 			headingText: 'Upcoming Games',
 		},
-		{
-			queryKey: 'PSNGames',
-			queryUrl: `/api/platformGames?platforms=18`,
-			headingText: 'PlayStation',
-		},
-		{
-			queryKey: 'XboxGames',
-			queryUrl: `/api/platformGames?platforms=1`,
-			headingText: 'Xbox',
-		},
-		{
-			queryKey: 'NintendoGames',
-			queryUrl: `/api/platformGames?platforms=7`,
-			headingText: 'Nintendo',
-		},
+		// {
+		// 	queryKey: 'PSNGames',
+		// 	queryUrl: `/api/platformGames?platforms=1,2`,
+		// 	headingText: 'PlayStation',
+		// },
+		// {
+		// 	queryKey: 'XboxGames',
+		// 	queryUrl: `/api/platformGames?platforms=1,3`,
+		// 	headingText: 'Xbox',
+		// },
+		// {
+		// 	queryKey: 'NintendoGames',
+		// 	queryUrl: `/api/platformGames?platforms=1,7`,
+		// 	headingText: 'Nintendo',
+		// },
 	]
-
+	// these platform queries dont work cause the API is shit, refactor to use the IGDB for this part
 	return (
 		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
 			<div className=" main-carousel rounded-xl ">
