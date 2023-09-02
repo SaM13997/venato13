@@ -1,33 +1,19 @@
 'use client'
-
-import { useQuery } from 'react-query'
-import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
-import GameCard from './GameCard'
+import PortraitCoverGameCard from './PortraitCoverGameCard'
 import Carousel from 'react-multi-carousel'
-import LazyLoadingCarousel from '../GameCards/LoadingFallback'
-import 'react-multi-carousel/lib/styles.css'
-import { getGamesFromQuery } from '@/utilities/utilities'
+import { useQuery } from 'react-query'
 import axios from 'axios'
 
-function GameCards(props) {
+function PortraitCoverGameCardCarousel(props) {
 	const { queryKey, queryUrl, headingText } = props
 	// console.log(headingText, queryKey, queryUrl)
 	const queryFn = async () => {
 		return axios.get(queryUrl)
 	}
 	const { data, isLoading, error } = useQuery({ queryKey, queryFn })
-
-	// console.log(data)
 	if (isLoading) {
-		return (
-			<div>
-				<div className="container mx-auto h-full w-full gap-4 p-3 pb-0">
-					<Skeleton className="mb-3 mt-5 h-10 w-64 rounded-full" />
-					<LazyLoadingCarousel />
-				</div>
-			</div>
-		)
+		return <div>waiting</div>
 	}
 
 	if (error) {
@@ -37,10 +23,7 @@ function GameCards(props) {
 			</div>
 		)
 	}
-
 	const games = data.data
-	const filteredGames = getGamesFromQuery(games.data.results)
-
 	return (
 		<div className="flex w-full flex-col justify-center ">
 			<p className="my-3 pl-12 text-4xl">{headingText}</p>
@@ -48,7 +31,7 @@ function GameCards(props) {
 				additionalTransfrom={0}
 				arrows
 				autoPlaySpeed={3000}
-				centerMode={true}
+				centerMode={false}
 				className=""
 				containerClass="container h-full"
 				customLeftArrow={false}
@@ -70,7 +53,7 @@ function GameCards(props) {
 							max: 3000,
 							min: 1024,
 						},
-						items: 4,
+						items: 2,
 						partialVisibilityGutter: 80,
 					},
 					mobile: {
@@ -95,16 +78,16 @@ function GameCards(props) {
 				shouldResetAutoplay
 				showDots={false}
 				sliderClass="h-full"
-				itemClass=""
+				itemClass="pr-2"
 				slidesToSlide={1}
 				swipeable={false}
 			>
-				{filteredGames.map((game, index) => (
-					<GameCard game={game} key={index} />
+				{games.map((game, index) => (
+					<PortraitCoverGameCard game={game} key={index} />
 				))}
 			</Carousel>
 		</div>
 	)
 }
 
-export default GameCards
+export default PortraitCoverGameCardCarousel

@@ -2,7 +2,8 @@ import React from 'react'
 import dayjs from 'dayjs'
 import CenterStageCarousel from '../BigGameCard/BigGameCarousel'
 import GameCardCarousel from '../GameCards/GameCardCarousel'
-import GameList from '../Games'
+import PortraitCoverGameCardCarousel from '@/components/PortraitCoverGameCard/PortraitCoverGameCardCarousel'
+import GameList from '@/utilities/Games'
 
 function Main() {
 	const today = dayjs().format('YYYY-MM-DD')
@@ -17,21 +18,23 @@ function Main() {
 			queryUrl: `/api/upcomingGames?today=${today}`,
 			headingText: 'Upcoming Games',
 		},
-		// {
-		// 	queryKey: 'PSNGames',
-		// 	queryUrl: `/api/platformGames?platforms=1,2`,
-		// 	headingText: 'PlayStation',
-		// },
-		// {
-		// 	queryKey: 'XboxGames',
-		// 	queryUrl: `/api/platformGames?platforms=1,3`,
-		// 	headingText: 'Xbox',
-		// },
-		// {
-		// 	queryKey: 'NintendoGames',
-		// 	queryUrl: `/api/platformGames?platforms=1,7`,
-		// 	headingText: 'Nintendo',
-		// },
+	]
+	const mainPageIGDBPlatformsArray = [
+		{
+			queryKey: 'IGDBPSExclusives',
+			queryUrl: `/api/IGDBPlatformsGames?platforms=6 48 167`,
+			headingText: 'Playstation Exclusives',
+		},
+		{
+			queryKey: 'IGDBXboxExclusives',
+			queryUrl: `/api/IGDBPlatformsGames?platforms=6 11 12 49 169`,
+			headingText: 'Xbox Exclusives',
+		},
+		{
+			queryKey: 'IGDBNintendoExclusives',
+			queryUrl: `/api/IGDBPlatformsGames?platforms=6 130`,
+			headingText: 'Nintendo Exclusives',
+		},
 	]
 	// these platform queries dont work cause the API is shit, refactor to use the IGDB for this part
 	return (
@@ -52,6 +55,16 @@ function Main() {
 					)
 				})}
 			</div>
+			{mainPageIGDBPlatformsArray.map((category, index) => {
+				return (
+					<PortraitCoverGameCardCarousel
+						key={index}
+						queryKey={category.queryKey}
+						queryUrl={category.queryUrl}
+						headingText={category.headingText}
+					/>
+				)
+			})}
 		</div>
 	)
 }

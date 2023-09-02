@@ -1,3 +1,4 @@
+import { IGDBWhereQueryBuilder } from '@/utilities/utilities'
 import { NextResponse } from 'next/server'
 
 export async function GET(req, res) {
@@ -6,14 +7,23 @@ export async function GET(req, res) {
 		const client_id = 'zm1q09qmyhsfoi25k3h3tfoi2g1t3o'
 		const auth_token = 'Bearer 9d8zcztfona0dh78qk9wwzy0kwtfg6'
 		const url = 'https://api.igdb.com/v4/games'
+		const { searchParams } = new URL(req.url)
+		const platformsFromQuery = searchParams.get('platforms').split(' ')
+		console.log(platformsFromQuery)
 
 		const headers = {
 			'Client-ID': client_id,
 			Authorization: auth_token,
 		}
+		const whereQueryPart = IGDBWhereQueryBuilder(platformsFromQuery)
+		// console.log(whereQueryPart)
 
-		const data = `fields name, cover, aggregated_rating, slug, genres.*, summary;sort aggregated_rating desc;
-    where first_release_date > 1641016861 & aggregated_rating > 90 & parent_game=null & aggregated_rating_count > 4; limit 10;`
+		const data = `
+    fields name,category,platforms,aggregated_rating, rating, cover.image_id;
+    sort aggregated_rating desc;
+    where ${whereQueryPart}; 
+    limit 20;
+    `
 
 		try {
 			const response = await fetch(url, {

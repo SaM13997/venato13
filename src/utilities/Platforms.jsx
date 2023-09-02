@@ -17,6 +17,15 @@ const platformToIconMap = {
 	Nintendo: () => <BsNintendoSwitch />,
 	Atari: () => <SiAtari />,
 	Web: () => <TbWorldWww />,
+	6: () => <AiFillWindows />,
+	11: () => <FaXbox />,
+	12: () => <FaXbox />,
+	49: () => <FaXbox />,
+	169: () => <p className="font-bold">X|S</p>,
+	130: () => <BsNintendoSwitch />,
+	14: () => <FaApple />,
+	48: () => <FaPlaystation />,
+	167: () => <FaPlaystation />,
 }
 
 function Platforms({ platforms }) {

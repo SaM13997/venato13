@@ -5,11 +5,18 @@ import Providers from './Providers'
 import { SearchBar, UserAvatar } from '@/utilities/utilities'
 import { BsController, BsBox2HeartFill } from 'react-icons/bs'
 import { MdDoneAll } from 'react-icons/md'
+import { Ubuntu } from 'next/font/google'
 
 export const metadata = {
 	title: 'Venato',
 	description: 'Your game manager',
 }
+
+const ubuntu = Ubuntu({
+	weight: '400',
+	style: 'normal',
+	subsets: ['latin'],
+})
 
 export default function RootLayout({
 	children,
@@ -17,7 +24,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" className={ubuntu.className}>
 			<body className="flex h-screen flex-col overflow-hidden">
 				<Providers>
 					<div className="flex h-full flex-col">

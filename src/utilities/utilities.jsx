@@ -10,6 +10,21 @@ const platformsArrayCreator = (platformParentArray) => {
 	}
 }
 
+export const IGDBWhereQueryBuilder = (platformsFromQuery) => {
+	// console.log(platformsFromQuery)
+	const platforms = platformsFromQuery.join()
+	let string = `(platforms !=n & platforms = {${platforms}} & aggregated_rating > 80 & rating > 80 & first_release_date > 1325397661) | `
+	platformsFromQuery.forEach((platform, index) => {
+		if (index == platformsFromQuery.length - 1) {
+			string += ` (platforms !=n & platforms = ${platform} & aggregated_rating > 88 & rating > 80 & first_release_date > 1325397661)`
+		} else {
+			string += ` (platforms !=n & platforms = ${platform} & aggregated_rating > 80 & rating > 80 & first_release_date > 1325397661) |`
+		}
+	})
+	// console.log(string)
+	return string
+}
+
 export const getGamesFromQuery = (games) => {
 	return games.map((game) => {
 		// console.log('platform Array', platformsArrayCreator(game.parent_platforms))
