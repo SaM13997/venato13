@@ -7,7 +7,7 @@ export async function GET(req, res) {
 		const dateFromQuery = searchParams.get('today')
 		try {
 			const response = await fetch(
-				`${url}?key=${key}&dates=2021-01-01,${dateFromQuery}&ordering=-added`
+				`${url}?key=${key}&dates=2023-01-01,${dateFromQuery}&ordering=-added`
 			)
 
 			if (!response.ok) {
