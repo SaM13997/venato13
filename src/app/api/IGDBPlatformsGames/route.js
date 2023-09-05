@@ -19,7 +19,7 @@ export async function GET(req, res) {
 		// console.log(whereQueryPart)
 
 		const data = `
-    fields name,category,platforms,aggregated_rating, rating, cover.image_id;
+    fields name,category,platforms,aggregated_rating, rating, cover.image_id, summary, genres.name;
     sort aggregated_rating desc;
     where ${whereQueryPart}; 
     limit 20;

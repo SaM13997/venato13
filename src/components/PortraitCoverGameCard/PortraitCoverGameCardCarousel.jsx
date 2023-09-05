@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client'
 import React from 'react'
 import PortraitCoverGameCard from './PortraitCoverGameCard'
@@ -19,6 +20,10 @@ function PortraitCoverGameCardCarousel(props) {
 	if (error) {
 		return (
 			<div className="flex h-[350px] items-center justify-center rounded-xl bg-zinc-700 text-2xl text-slate-200">
+				<p>
+					I'm gonna be honest my gamer, this code is pretty spagetti and I'm
+					surprised it worked in the first place...
+				</p>
 				{error.message}
 			</div>
 		)
@@ -78,7 +83,7 @@ function PortraitCoverGameCardCarousel(props) {
 				shouldResetAutoplay
 				showDots={false}
 				sliderClass="h-full"
-				itemClass="pr-2"
+				itemClass="h-full pr-4"
 				slidesToSlide={1}
 				swipeable={false}
 			>

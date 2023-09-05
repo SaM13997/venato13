@@ -28,7 +28,7 @@ function Main() {
 		{
 			queryKey: 'IGDBXboxExclusives',
 			queryUrl: `/api/IGDBPlatformsGames?platforms=6 11 12 49 169`,
-			headingText: 'Xbox Exclusives',
+			headingText: 'Microsoft Exclusives',
 		},
 		{
 			queryKey: 'IGDBNintendoExclusives',
@@ -55,16 +55,18 @@ function Main() {
 					)
 				})}
 			</div>
-			{mainPageIGDBPlatformsArray.map((category, index) => {
-				return (
-					<PortraitCoverGameCardCarousel
-						key={index}
-						queryKey={category.queryKey}
-						queryUrl={category.queryUrl}
-						headingText={category.headingText}
-					/>
-				)
-			})}
+			<div className="h-[500px]">
+				{mainPageIGDBPlatformsArray.map((category, index) => {
+					return (
+						<PortraitCoverGameCardCarousel
+							key={index}
+							queryKey={category.queryKey}
+							queryUrl={category.queryUrl}
+							headingText={category.headingText}
+						/>
+					)
+				})}
+			</div>
 		</div>
 	)
 }

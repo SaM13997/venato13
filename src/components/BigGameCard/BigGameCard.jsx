@@ -3,7 +3,7 @@ import { Button } from '@nextui-org/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import StarRating from './StarRating'
-import { MetacriticSquare } from '../../utilities/utilities'
+import { MetacriticSquare } from '@/utilities/UtilityComponents'
 
 const GameCardCenterStage = ({ game }) => {
 	let { id, slug, name, bgImage, rating, metacritic, released } = game
