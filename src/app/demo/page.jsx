@@ -1,70 +1,9 @@
 import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
 // import Carousel from '../../components/GameCards/LoadingFallback'
-import VerticalCoverGameCard from '@/components/GameCards/VerticalCoverGameCard'
 import Carousel from 'react-multi-carousel'
 function Main() {
 	return (
-		<Carousel
-			additionalTransfrom={0}
-			arrows
-			autoPlaySpeed={3000}
-			centerMode
-			className=""
-			containerClass="container h-full"
-			customLeftArrow={false}
-			customRightArrow={false}
-			dotListClass=""
-			draggable
-			focusOnSelect={false}
-			infinite={true}
-			partialVisible={false}
-			keyBoardControl
-			minimumTouchDrag={80}
-			pauseOnHover
-			renderArrowsWhenDisabled={false}
-			renderButtonGroupOutside={true}
-			renderDotsOutside={false}
-			responsive={{
-				desktop: {
-					breakpoint: {
-						max: 3000,
-						min: 1024,
-					},
-					items: 4,
-					partialVisibilityGutter: 80,
-				},
-				mobile: {
-					breakpoint: {
-						max: 464,
-						min: 0,
-					},
-					items: 1,
-					partialVisibilityGutter: 50,
-				},
-				tablet: {
-					breakpoint: {
-						max: 1024,
-						min: 464,
-					},
-					items: 2,
-					partialVisibilityGutter: 30,
-				},
-			}}
-			rewindWithAnimation={false}
-			rtl={false}
-			shouldResetAutoplay
-			showDots={false}
-			sliderClass="h-full"
-			itemClass=""
-			slidesToSlide={1}
-			swipeable={false}
-		>
-			{filteredGames.map((game, index) => (
-				<VerticalCoverGameCard game={game} key={index} />
-			))}
-		</Carousel>
-
 		// <div className="flex-col flex items-start  p-2.5 ">
 		// 	<div className=" w-full flex items-start ">
 		// 		<div className="Left bg-yellow-100 h-full flex-col w-[67%] flex justify-start items-start gap-2.5 rounded-[22px]">
@@ -136,10 +75,10 @@ function Main() {
 		// 	</div>
 		// </div>
 
-		// <div className="container mx-auto h-full w-full gap-4 p-3 pb-0">
-		// 	<Skeleton className="mb-3 ml-12 mt-5 h-10 w-64 rounded-full" />
-		// 	<Carousel />
-		// </div>
+		<div className="container mx-auto h-full w-full gap-4 p-3 pb-0">
+			<Skeleton className="mb-3 ml-12 mt-5 h-10 w-64 rounded-full" />
+			<Carousel />
+		</div>
 	)
 }
 export default Main
