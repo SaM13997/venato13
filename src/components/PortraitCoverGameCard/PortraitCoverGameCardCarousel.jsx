@@ -71,10 +71,10 @@ function PortraitCoverGameCardCarousel(props) {
 					},
 					tablet: {
 						breakpoint: {
-							max: 1024,
+							max: 1500,
 							min: 464,
 						},
-						items: 2,
+						items: 1,
 						partialVisibilityGutter: 30,
 					},
 				}}
