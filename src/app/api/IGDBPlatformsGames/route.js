@@ -1,5 +1,6 @@
 import { IGDBWhereQueryBuilder } from '@/utilities/utilities'
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
+export const dynamic = 'force-dynamic'
 
 export async function GET(req, res) {
 	const fetchGames = async () => {
@@ -7,7 +8,7 @@ export async function GET(req, res) {
 		const client_id = 'zm1q09qmyhsfoi25k3h3tfoi2g1t3o'
 		const auth_token = 'Bearer 9d8zcztfona0dh78qk9wwzy0kwtfg6'
 		const url = 'https://api.igdb.com/v4/games'
-		const { searchParams } = new URL(req.url)
+		const { searchParams } = new URL(NextRequest.url)
 		const platformsFromQuery = searchParams.get('platforms').split(' ')
 		console.log(platformsFromQuery)
 
