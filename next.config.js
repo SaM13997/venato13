@@ -4,14 +4,7 @@ const nextConfig = {
 		appDir: true,
 	},
 	images: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: 'media.rawg.io',
-				port: '',
-				pathname: '/**',
-			},
-		],
+		domains: ['images.igdb.com', 'img.freepik.com', 'media.rawg.io'],
 	},
 }
 

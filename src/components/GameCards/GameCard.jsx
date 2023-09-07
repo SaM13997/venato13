@@ -14,9 +14,10 @@ const GameCard = (props) => {
 	return (
 		<Link href="/demo">
 			<div className="overflow-hidden rounded-2xl border border-slate-950 shadow-md">
-				<img
-					width="1450"
-					height="720"
+				<Image
+					width="280"
+					height="220"
+					loading="eager"
 					src={game.bgImage.length ? game.bgImage : FallbackImageURL}
 					className="aspect-video h-[220px] object-cover"
 					alt=""

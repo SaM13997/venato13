@@ -5,14 +5,18 @@ import { FiArrowUpRight } from 'react-icons/fi'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { GenreChips } from '@/utilities/UtilityComponents'
+import Image from 'next/image'
 
 function PortraitCoverGameCard({ game }) {
 	return (
 		<div className="mx-1 flex h-full max-h-[480px] w-[480px] grid-cols-2 rounded-xl bg-zinc-800">
-			<img
+			<Image
+				width="355"
+				height="476"
 				src={`https://images.igdb.com/igdb/image/upload/t_720p/${game?.cover?.image_id}.jpg`}
 				alt={`${game.name}'s game cover`}
-				className="w-[50%] rounded-l-xl object-cover"
+				className="max-w-[50%] rounded-l-xl object-cover"
+				loading="eager"
 			/>
 			<div className="flex flex-col justify-between px-4 py-2">
 				<div className="flex flex-col gap-2">
