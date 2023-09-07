@@ -3,8 +3,10 @@
 import React from 'react'
 import PortraitCoverGameCard from './PortraitCoverGameCard'
 import Carousel from 'react-multi-carousel'
+import Glider from 'react-glider'
 import { useQuery } from 'react-query'
 import axios from 'axios'
+import 'glider-js/glider.min.css'
 
 function PortraitCoverGameCardCarousel(props) {
 	const { queryKey, queryUrl, headingText } = props
@@ -19,7 +21,7 @@ function PortraitCoverGameCardCarousel(props) {
 
 	if (error) {
 		return (
-			<div className="flex h-[350px] items-center justify-center rounded-xl bg-zinc-700 text-2xl text-slate-200">
+			<div className="flex h-[350px] flex-col-reverse items-center justify-center rounded-xl bg-zinc-700 text-2xl text-slate-200">
 				<p>
 					I'm gonna be honest my gamer, this code is pretty spagetti and I'm
 					surprised it worked in the first place...
@@ -29,68 +31,29 @@ function PortraitCoverGameCardCarousel(props) {
 		)
 	}
 	const games = data.data
+	//! there is some doubt that Glider may be causing some ChunkLoadingError that doesn't get resolved until the devtools are closed, in this error the network calls never finish when hard reloading the page.
 	return (
 		<div className="flex w-full flex-col justify-center ">
 			<p className="my-3 pl-12 text-4xl">{headingText}</p>
-			<Carousel
-				additionalTransfrom={0}
-				arrows
-				autoPlaySpeed={3000}
-				centerMode={false}
-				className=""
-				containerClass="container h-full"
-				customLeftArrow={false}
-				customRightArrow={false}
-				dotListClass=""
-				draggable
-				focusOnSelect={false}
-				infinite={true}
-				partialVisible={false}
-				keyBoardControl
-				minimumTouchDrag={80}
-				pauseOnHover
-				renderArrowsWhenDisabled={false}
-				renderButtonGroupOutside={true}
-				renderDotsOutside={false}
-				responsive={{
-					desktop: {
-						breakpoint: {
-							max: 3000,
-							min: 1024,
+			<Glider
+				hasArrows
+				slidesToShow={1}
+				slidesToScroll={1}
+				scrollLock
+				responsive={[
+					{
+						breakpoint: 1348,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2,
 						},
-						items: 2,
-						partialVisibilityGutter: 80,
 					},
-					mobile: {
-						breakpoint: {
-							max: 464,
-							min: 0,
-						},
-						items: 1,
-						partialVisibilityGutter: 50,
-					},
-					tablet: {
-						breakpoint: {
-							max: 1500,
-							min: 464,
-						},
-						items: 1,
-						partialVisibilityGutter: 30,
-					},
-				}}
-				rewindWithAnimation={false}
-				rtl={false}
-				shouldResetAutoplay
-				showDots={false}
-				sliderClass="h-full"
-				itemClass="h-full pr-4"
-				slidesToSlide={1}
-				swipeable={false}
+				]}
 			>
 				{games.map((game, index) => (
 					<PortraitCoverGameCard game={game} key={index} />
 				))}
-			</Carousel>
+			</Glider>
 		</div>
 	)
 }

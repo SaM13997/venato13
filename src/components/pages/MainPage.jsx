@@ -55,7 +55,7 @@ function Main() {
 					)
 				})}
 			</div>
-			<div className="h-[500px]">
+			<div className="px-4">
 				{mainPageIGDBPlatformsArray.map((category, index) => {
 					return (
 						<PortraitCoverGameCardCarousel

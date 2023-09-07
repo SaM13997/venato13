@@ -35,7 +35,11 @@ function Platforms({ platforms }) {
 				{Array.isArray(platforms) ? (
 					platforms.map((platform, index) => {
 						const IconComponent = platformToIconMap[platform]
-						return <li key={index}>{IconComponent && <IconComponent />}</li>
+						return (
+							<li className="list-none" key={index}>
+								{IconComponent && <IconComponent />}
+							</li>
+						)
 					})
 				) : (
 					<p>TBA</p>
