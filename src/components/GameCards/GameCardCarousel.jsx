@@ -1,50 +1,99 @@
-'use client'
+"use client";
 
-import { useQuery } from 'react-query'
-import { Skeleton } from '@/components/ui/skeleton'
-import React from 'react'
-import GameCard from './GameCard'
-import Carousel from 'react-multi-carousel'
-import LazyLoadingCarousel from '../GameCards/LoadingFallback'
-import 'react-multi-carousel/lib/styles.css'
-import { getGamesFromQuery } from '@/utilities/utilities'
-import axios from 'axios'
+import { useQuery } from "react-query";
+import { Skeleton } from "@/components/ui/skeleton";
+import React from "react";
+import GameCard from "./GameCard";
+import Carousel from "react-multi-carousel";
+import LazyLoadingCarousel from "../GameCards/LoadingFallback";
+import "react-multi-carousel/lib/styles.css";
+import { getGamesFromQuery } from "@/utilities/utilities";
+import axios from "axios";
+import Glider from "react-glider";
+import "glider-js/glider.min.css";
 
 function GameCards(props) {
-	const { queryKey, queryUrl, headingText } = props
-	// console.log(headingText, queryKey, queryUrl)
-	const queryFn = async () => {
-		return axios.get(queryUrl)
-	}
-	const { data, isLoading, error } = useQuery({ queryKey, queryFn })
+  const { queryKey, queryUrl, headingText } = props;
+  // console.log(headingText, queryKey, queryUrl)
+  const queryFn = async () => {
+    return axios.get(queryUrl);
+  };
+  const { data, isLoading, error } = useQuery({ queryKey, queryFn });
 
-	// console.log(data)
-	if (isLoading) {
-		return (
-			<div>
-				<div className="container mx-auto h-full w-full gap-4 p-3 pb-0">
-					<Skeleton className="mb-3 mt-5 h-10 w-64 rounded-full" />
-					<LazyLoadingCarousel />
-				</div>
-			</div>
-		)
-	}
+  // console.log(data)
+  if (isLoading) {
+    return (
+      <div>
+        <div className="container mx-auto h-full w-full gap-4 p-3 pb-0">
+          <Skeleton className="mb-3 mt-5 h-10 w-64 rounded-full" />
+          <LazyLoadingCarousel />
+        </div>
+      </div>
+    );
+  }
 
-	if (error) {
-		return (
-			<div className="flex h-[350px] items-center justify-center rounded-xl bg-zinc-700 text-2xl text-slate-200">
-				{error.message}
-			</div>
-		)
-	}
+  if (error) {
+    return (
+      <div className="flex h-[350px] items-center justify-center rounded-xl bg-zinc-700 text-2xl text-slate-200">
+        {error.message}
+      </div>
+    );
+  }
 
-	const games = data.data
-	const filteredGames = getGamesFromQuery(games.data.results)
+  const games = data.data;
+  const filteredGames = getGamesFromQuery(games.data.results);
 
-	return (
-		<div className="flex w-full flex-col justify-center ">
-			<p className="my-3 pl-12 text-4xl">{headingText}</p>
-			<Carousel
+  return (
+    <div className="flex w-full flex-col justify-center ">
+      <p className="my-4 pl-2 text-2xl sm:text-4xl">{headingText}</p>
+      <Glider
+        hasArrows
+        slidesToShow={1.2}
+        slidesToScroll={1}
+        scrollLock
+        responsive={[
+          {
+            breakpoint: 700,
+            settings: {
+              slidesToShow: 2.2,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 1280,
+            settings: {
+              slidesToShow: 3.2,
+              slidesToScroll: 3,
+            },
+          },
+          {
+            breakpoint: 1580,
+            settings: {
+              slidesToShow: 4.2,
+              slidesToScroll: 4,
+            },
+          },
+          {
+            breakpoint: 2080,
+            settings: {
+              slidesToShow: "auto",
+              slidesToScroll: "auto",
+            },
+          },
+        ]}
+      >
+        {filteredGames.map((game, index) => (
+          <GameCard game={game} key={index} />
+        ))}
+      </Glider>
+    </div>
+  );
+}
+
+export default GameCards;
+
+{
+  /* <Carousel
 				additionalTransfrom={0}
 				arrows
 				autoPlaySpeed={3000}
@@ -102,9 +151,5 @@ function GameCards(props) {
 				{filteredGames.map((game, index) => (
 					<GameCard game={game} key={index} />
 				))}
-			</Carousel>
-		</div>
-	)
+			</Carousel> */
 }
-
-export default GameCards

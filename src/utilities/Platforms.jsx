@@ -31,7 +31,7 @@ const platformToIconMap = {
 function Platforms({ platforms }) {
 	return (
 		<div className="flex w-full items-center justify-between">
-			<div className="  flex max-w-fit items-center gap-2 rounded-full bg-slate-200 p-2 px-6 text-slate-800">
+			<div className="flex max-w-fit items-center gap-2 rounded-full bg-slate-200 p-2 px-6 text-slate-800">
 				{Array.isArray(platforms) ? (
 					platforms.map((platform, index) => {
 						const IconComponent = platformToIconMap[platform]
