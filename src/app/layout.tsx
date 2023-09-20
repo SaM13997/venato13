@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Providers from './Providers'
 import { SearchBar, UserAvatar } from '@/utilities/UtilityComponents'
 import Sidebar from '@/components/Sidebar/Sidebar'
-import { register } from 'swiper/element/bundle'
 
 import { Ubuntu } from 'next/font/google'
 import DrawerSidebar from '@/components/DrawerSidebar'
@@ -25,7 +24,6 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode
 }) {
-	register()
 	return (
 		<html lang="en" className={ubuntu.className}>
 			<body className="flex h-screen flex-col overflow-hidden">
