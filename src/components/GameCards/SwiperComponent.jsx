@@ -1,10 +1,13 @@
 'use client'
 
 import React from 'react'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper/modules'
+import { Navigation, EffectFade } from 'swiper/modules'
+import 'swiper/css/effect-fade'
+
 import { useQuery } from 'react-query'
 import { Skeleton } from '@/components/ui/skeleton'
 import GameCard from './GameCard'
@@ -47,30 +50,43 @@ const SwiperComponent = (props) => {
 	return (
 		<div>
 			<p>{headingText}</p>
-			<Swiper
-				slidesPerView={1}
-				navigation={true}
-				modules={[Navigation]}
-				breakpoints={{
-					768: {
-						slidesPerView: 2,
-					},
-					1280: {
-						slidesPerView: 3,
-					},
-					1600: {
-						slidesPerView: 4,
-					},
-				}}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={(swiper) => console.log(swiper)}
-			>
-				{filteredGames.map((game, index) => (
-					<SwiperSlide key={index}>
-						<GameCard game={game} />
-					</SwiperSlide>
-				))}
-			</Swiper>
+
+			<div className="hidden sm:block">
+				<Swiper
+					navigation={true}
+					modules={[Navigation]}
+					breakpoints={{
+						768: {
+							slidesPerView: 2,
+						},
+						1280: {
+							slidesPerView: 3,
+						},
+						1600: {
+							slidesPerView: 4,
+						},
+					}}
+				>
+					{filteredGames.map((game, index) => (
+						<SwiperSlide key={index}>
+							<GameCard game={game} />
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
+			<div className="sm:hidden">
+				<Swiper
+					navigation={true}
+					effect={'fade'}
+					modules={[Navigation, EffectFade]}
+				>
+					{filteredGames.map((game, index) => (
+						<SwiperSlide key={index}>
+							<GameCard game={game} />
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
 		</div>
 	)
 }
