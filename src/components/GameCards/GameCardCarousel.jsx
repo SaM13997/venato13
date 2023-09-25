@@ -3,14 +3,9 @@
 import { useQuery } from 'react-query'
 import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
-import GameCard from './GameCard'
-import Carousel from 'react-multi-carousel'
 import LazyLoadingCarousel from '../GameCards/LoadingFallback'
-import 'react-multi-carousel/lib/styles.css'
 import { getGamesFromQuery } from '@/utilities/utilities'
 import axios from 'axios'
-import Glider from 'react-glider'
-// import "glider-js/glider.min.css";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 

@@ -37,6 +37,7 @@ export const getGamesFromQuery = (games) => {
 			platforms: platformsArrayCreator(game?.parent_platforms) || 'TBA',
 			genres: game.genres || 'TBA',
 			screenshots: game.short_screenshorts || 'TBA',
+			api: 'rawg',
 		}
 	})
 }

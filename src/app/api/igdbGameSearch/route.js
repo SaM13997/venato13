@@ -1,6 +1,4 @@
-import { IGDBWhereQueryBuilder } from '@/utilities/utilities'
 import { NextResponse, NextRequest } from 'next/server'
-export const dynamic = 'force-dynamic'
 
 export async function GET(req, res) {
 	const fetchGames = async () => {
@@ -8,26 +6,19 @@ export async function GET(req, res) {
 		const auth_token = process.env.auth_token
 		const url = 'https://api.igdb.com/v4/games'
 		const { searchParams } = new URL(req.url)
-		const platformsFromQuery = searchParams.get('platforms').split(' ')
+		const gameID = searchParams.get('gameID')
 
 		const headers = {
 			'Client-ID': client_id,
 			Authorization: auth_token,
 		}
-		const whereQueryPart = IGDBWhereQueryBuilder(platformsFromQuery)
-
-		const data = `
-    fields name,slug,category,platforms,aggregated_rating, rating, cover.image_id, summary, genres.name;
-    sort aggregated_rating desc;
-    where ${whereQueryPart}; 
-    limit 20;
-    `
+		const bodyContent = `fields name, platforms, aggregated_rating, cover.image_id;where id = ${gameID};limit 10;`
 
 		try {
 			const response = await fetch(url, {
 				method: 'POST',
 				headers: headers,
-				body: data,
+				body: bodyContent,
 			})
 
 			if (!response.ok) {

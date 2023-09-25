@@ -1,22 +1,19 @@
-import axios from 'axios'
 import { NextRequest, NextResponse } from 'next/server'
-export async function GET(req: NextRequest, res: NextResponse) {
+
+export async function GET(req, res) {
 	const fetchData = async () => {
-		const url = 'https://api.rawg.io/api/games'
-		const key = '27fdc1adf5384b60b1b4c1f20e69ecec'
+		const key = process.env.RawgAPIKey
 		const { searchParams } = new URL(req.url)
 		const gameID = searchParams.get('gameID')
-		console.log(gameID)
+		const url = `https://api.rawg.io/api/games/${gameID}?key=${key}`
 		try {
-			const response = await fetch(`${url}/${gameID}?key=${key}`)
-
+			const response = await fetch(url)
 			if (!response.ok) {
 				throw new Error('Request failed with status ' + response.status)
 			}
-
 			const data = await response.json()
 			return data
-		} catch (error: any) {
+		} catch (error) {
 			console.error('Error:', error.message)
 			throw error
 		}
