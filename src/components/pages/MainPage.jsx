@@ -1,10 +1,8 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import CenterStageCarousel from '../BigGameCard/BigGameCarousel'
-import GameCardCarousel from '../GameCards/GameCardCarousel'
 import PortraitCoverGameCardCarousel from '@/components/PortraitCoverGameCard/PortraitCoverGameCardCarousel'
-import GameList from '@/utilities/Games'
-import SwiperComponent from '@/components/GameCards/SwiperComponent'
+import SwiperCarousel from '@/components/GameCards/SwiperCarousel'
 
 function Main() {
 	const today = dayjs().format('YYYY-MM-DD')
@@ -46,7 +44,7 @@ function Main() {
 
 			<div className="">
 				{mainPageCategoriesArray.map((category, index) => {
-					return <SwiperComponent category={category} key={index} />
+					return <SwiperCarousel category={category} key={index} />
 				})}
 			</div>
 			<div className="mt-4 max-h-fit">

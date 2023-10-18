@@ -21,10 +21,9 @@ function PortraitCoverGameCard({ game }) {
 				<Image
 					width="355"
 					height="476"
-					layout="responsive"
 					src={`https://images.igdb.com/igdb/image/upload/t_720p/${game?.cover?.image_id}.jpg`}
 					alt={`${game.name}'s game cover`}
-					className="max-w-[50%] rounded-t-xl object-cover sm:hidden sm:rounded-l-xl"
+					className="w-full max-w-[50%] rounded-t-xl object-cover sm:hidden sm:rounded-l-xl"
 					loading="eager"
 				/>
 				<div className="-mt-12 flex flex-col justify-between bg-opacity-20 py-2 backdrop-blur-lg backdrop-filter sm:mt-0">
