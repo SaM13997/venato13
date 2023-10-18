@@ -18,23 +18,21 @@ const GameCard = (props) => {
 					width="280"
 					height="220"
 					loading="eager"
-					layout="responsive"
+					// layout="responsive"
 					src={game.bgImage.length ? game.bgImage : FallbackImageURL}
-					className="aspect-video object-cover"
+					className="aspect-video w-full object-cover"
 					alt=""
 				/>
 				<div className="bg-zinc-900 p-3 text-xl">
 					<p className="truncate">{game.name}</p>
 					<div className=" mt-4 flex w-full items-center justify-between">
 						<Platforms platforms={game?.platforms} />
-						<Link href={`/${game.id}?api=${game.api}`}>
-							<Button
-								variant="ghost"
-								className="rounded-full border border-amber-500 text-amber-500"
-							>
-								<FiArrowUpRight />
-							</Button>
-						</Link>
+						<Button
+							variant="ghost"
+							className="rounded-full border border-amber-500 text-amber-500 hover:bg-amber-500"
+						>
+							<FiArrowUpRight />
+						</Button>
 					</div>
 				</div>
 			</div>
