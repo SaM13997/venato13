@@ -14,7 +14,7 @@ function PortraitCoverGameCardCarousel({ data, headingText }) {
 	const games = JSON.parse(data.value)
 	const gamess = [1, 2, 3, 3, 4, 4, 5, 5]
 	return (
-		<div>
+		<div className="bg-amber-200 px-1">
 			<p className="mb-1 mt-4 text-3xl">{headingText}</p>
 			<hr className="mb-1 h-2 w-1/5" />
 			<Swiper

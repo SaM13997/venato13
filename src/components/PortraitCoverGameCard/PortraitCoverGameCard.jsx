@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 function PortraitCoverGameCard({ game }) {
 	return (
-		<div className="mx-1 max-h-fit w-[480px] rounded-xl  bg-transparent sm:h-full sm:w-full ">
+		<div className="w-[480px] rounded-xl  bg-transparent sm:h-full sm:w-full ">
 			<div className="flex flex-col overflow-hidden rounded-xl bg-zinc-800 pb-2 sm:h-full sm:flex-row sm:pb-0">
 				<Image
 					width="355"

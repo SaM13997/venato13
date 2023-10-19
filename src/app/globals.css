@@ -37,6 +37,10 @@ body {
 	}
 }
 
+.swiper-slide {
+	height: 488px !important;
+}
+
 main::-webkit-scrollbar {
 	display: none;
 }
