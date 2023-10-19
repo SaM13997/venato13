@@ -1,7 +1,7 @@
 import style from './CenterStage.module.scss'
 import { Button } from '@/components/ui/button'
-import StarRating from '@/utilities/StarRating'
-import { MetacriticSquare } from '@/utilities/UtilityComponents'
+import StarRating from '@/components/utilities/StarRating'
+import { MetacriticSquare } from '@/components/utilities/UtilityComponents'
 import Link from 'next/link'
 
 const GameCardCenterStage = ({ game }) => {

@@ -8,9 +8,9 @@ import 'swiper/css/effect-fade'
 import { Navigation, EffectFade } from 'swiper/modules'
 
 import GameCard from './GameCard'
-import { getGamesFromQuery } from '@/utilities/utilities'
+import { getGamesFromQuery } from '@/components/utilities/utilities'
 
-const SwiperComponent = ({ data, headingText }) => {
+const GameCardCarousel = ({ data, headingText }) => {
 	const games = JSON.parse(data.value)?.data?.results
 	// console.log(games)
 	const filteredGames = getGamesFromQuery(games)
@@ -60,4 +60,4 @@ const SwiperComponent = ({ data, headingText }) => {
 	)
 }
 
-export default SwiperComponent
+export default GameCardCarousel

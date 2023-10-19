@@ -1,9 +1,9 @@
 import React from 'react'
-import Platforms from '@/utilities/Platforms'
+import Platforms from '@/components/utilities/Platforms'
 import { FiArrowUpRight } from 'react-icons/fi'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { GenreChips } from '@/utilities/UtilityComponents'
+import { GenreChips } from '@/components/utilities/UtilityComponents'
 import Image from 'next/image'
 
 function PortraitCoverGameCard({ game }) {

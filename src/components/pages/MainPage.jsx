@@ -1,36 +1,36 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import CenterStageCarousel from '../BigGameCard/BigGameCarousel'
+import BigGameCarousel from '../BigGameCard/BigGameCarousel'
 import PortraitCoverGameCardCarousel from '@/components/PortraitCoverGameCard/PortraitCoverGameCardCarousel'
-import SwiperCarousel from '@/components/GameCards/SwiperCarousel'
+import DataFetchParent from '@/components/utilities/DataFetchParent'
 
 function Main() {
 	const today = dayjs().format('YYYY-MM-DD')
 	const mainPageCategoriesArray = [
 		{
-			queryKey: 'NewReleasedGames',
+			componentType: 'GameCardCarousel',
 			queryUrl: `/api/newReleased?today=${today}`,
 			headingText: 'Newly Released',
 		},
 		{
-			queryKey: 'UpcomingGames',
+			componentType: 'GameCardCarousel',
 			queryUrl: `/api/upcomingGames?today=${today}`,
 			headingText: 'Upcoming Games',
 		},
 	]
 	const mainPageIGDBPlatformsArray = [
 		{
-			queryKey: 'IGDBPSExclusives',
+			componentType: 'PortraitCoverGameCardCarousel',
 			queryUrl: `/api/IGDBPlatformsGames?platforms=6 48 167`,
 			headingText: 'Playstation Exclusives',
 		},
 		{
-			queryKey: 'IGDBXboxExclusives',
+			componentType: 'PortraitCoverGameCardCarousel',
 			queryUrl: `/api/IGDBPlatformsGames?platforms=6 11 12 49 169`,
 			headingText: 'Microsoft Exclusives',
 		},
 		{
-			queryKey: 'IGDBNintendoExclusives',
+			componentType: 'PortraitCoverGameCardCarousel',
 			queryUrl: `/api/IGDBPlatformsGames?platforms=6 130`,
 			headingText: 'Nintendo Exclusives',
 		},
@@ -39,24 +39,22 @@ function Main() {
 	return (
 		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
 			<div className=" main-carousel rounded-xl ">
-				<CenterStageCarousel />
+				<DataFetchParent
+					category={{
+						componentType: 'BigGameCarousel',
+						queryUrl: `/api/games?today=${today}`,
+					}}
+				/>
 			</div>
 
 			<div className="">
 				{mainPageCategoriesArray.map((category, index) => {
-					return <SwiperCarousel category={category} key={index} />
+					return <DataFetchParent category={category} key={index} />
 				})}
 			</div>
 			<div className="mt-4 max-h-fit">
 				{mainPageIGDBPlatformsArray.map((category, index) => {
-					return (
-						<PortraitCoverGameCardCarousel
-							key={index}
-							queryKey={category.queryKey}
-							queryUrl={category.queryUrl}
-							headingText={category.headingText}
-						/>
-					)
+					return <DataFetchParent key={index} category={category} />
 				})}
 			</div>
 		</div>

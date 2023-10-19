@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import Platforms from '@/utilities/Platforms'
+import Platforms from '@/components/utilities/Platforms'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'

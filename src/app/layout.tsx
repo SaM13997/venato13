@@ -2,7 +2,7 @@ import './globals.css'
 import ProfileCard from '../components/Sidebar/ProfileCard'
 import Link from 'next/link'
 import Providers from './Providers'
-import { SearchBar, UserAvatar } from '@/utilities/UtilityComponents'
+import { SearchBar, UserAvatar } from '@/components/utilities/UtilityComponents'
 import Sidebar from '@/components/Sidebar/Sidebar'
 
 import { Ubuntu } from 'next/font/google'
