@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 function PortraitCoverGameCard({ game }) {
 	return (
-		<div className="w-[480px] rounded-xl  bg-transparent sm:h-full sm:w-full ">
+		<div className="w-full rounded-xl  bg-transparent sm:h-full sm:w-full ">
 			<div className="flex flex-col overflow-hidden rounded-xl bg-zinc-800 pb-2 sm:h-full sm:flex-row sm:pb-0">
 				<Image
 					width="355"
@@ -23,7 +23,7 @@ function PortraitCoverGameCard({ game }) {
 					height="476"
 					src={`https://images.igdb.com/igdb/image/upload/t_720p/${game?.cover?.image_id}.jpg`}
 					alt={`${game.name}'s game cover`}
-					className="w-full max-w-[50%] rounded-t-xl object-cover sm:hidden sm:rounded-l-xl"
+					className="w-full rounded-t-xl object-cover sm:hidden sm:rounded-l-xl"
 					loading="eager"
 				/>
 				<div className="-mt-12 flex flex-col justify-between bg-opacity-20 py-2 backdrop-blur-lg backdrop-filter sm:mt-0">
