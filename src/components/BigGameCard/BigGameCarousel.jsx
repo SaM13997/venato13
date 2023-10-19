@@ -6,6 +6,7 @@ import { getGamesFromQuery } from '@/components/utilities/utilities'
 
 function BigGameCarousel({ data }) {
 	const games = JSON.parse(data.value)?.data?.results
+	// console.log(JSON.parse(data.value).data)
 	const filteredGames = getGamesFromQuery(games)
 	return (
 		<Carousel

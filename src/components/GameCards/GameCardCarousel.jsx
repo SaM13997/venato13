@@ -12,14 +12,11 @@ import { getGamesFromQuery } from '@/components/utilities/utilities'
 
 const GameCardCarousel = ({ data, headingText }) => {
 	const games = JSON.parse(data.value)?.data?.results
-	// console.log(games)
 	const filteredGames = getGamesFromQuery(games)
 	return (
 		<div>
 			<p className="mb-1 mt-4 text-3xl">{headingText}</p>
-
 			<hr className="mb-1 h-2 w-1/5" />
-
 			<div className="hidden sm:block">
 				<Swiper
 					navigation={true}
