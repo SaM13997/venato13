@@ -11,8 +11,8 @@ import GameCard from './GameCard'
 import { getGamesFromQuery } from '@/components/utilities/utilities'
 
 const GameCardCarousel = ({ data, headingText }) => {
-	const games = JSON.parse(data.value)?.data?.results
-	const filteredGames = getGamesFromQuery(games)
+	// const games = JSON.parse(data.value)?.data?.results
+	const filteredGames = getGamesFromQuery(data.data.results)
 	return (
 		<div>
 			<p className="mb-1 mt-4 text-3xl">{headingText}</p>

@@ -10,8 +10,8 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 function PortraitCoverGameCardCarousel({ data, headingText }) {
-	// console.log(Swiper)
-	const games = JSON.parse(data.value)
+	// console.log(data)
+	// const games = JSON.parse(data.value)
 	const gamess = [1, 2, 3, 3, 4, 4, 5, 5]
 	return (
 		<div className="bg-amber-200 px-1">
@@ -27,7 +27,7 @@ function PortraitCoverGameCardCarousel({ data, headingText }) {
 					},
 				}}
 			>
-				{games.map((game, index) => (
+				{data.map((game, index) => (
 					<SwiperSlide key={index}>
 						<PortraitCoverGameCard game={game} />
 					</SwiperSlide>

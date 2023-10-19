@@ -5,9 +5,10 @@ import Carousel from 'react-material-ui-carousel'
 import { getGamesFromQuery } from '@/components/utilities/utilities'
 
 function BigGameCarousel({ data }) {
-	const games = JSON.parse(data.value)?.data?.results
+	console.log(data)
+	// const games = JSON?.parse(data)?.data?.results
 	// console.log(JSON.parse(data.value).data)
-	const filteredGames = getGamesFromQuery(games)
+	const filteredGames = getGamesFromQuery(data.data.results)
 	return (
 		<Carousel
 			className="h-[40vh] sm:h-[77.5vh]"

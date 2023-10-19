@@ -17,7 +17,7 @@ async function DataFetchParent(props: Props) {
 			? `http://localhost:3000${queryUrl}`
 			: `https://venato13.vercel.app${queryUrl}`
 	)
-	const data = res.json()
+	const data = await res.json()
 
 	switch (componentType) {
 		case 'GameCardCarousel':
