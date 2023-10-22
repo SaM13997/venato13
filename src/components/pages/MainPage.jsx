@@ -52,7 +52,7 @@ function Main() {
 					return <DataFetchParent category={category} key={index} />
 				})}
 			</div>
-			<div className="mt-4 max-h-fit">
+			<div className="IGDB mt-4 max-h-fit">
 				{mainPageIGDBPlatformsArray.map((category, index) => {
 					return <DataFetchParent key={index} category={category} />
 				})}
