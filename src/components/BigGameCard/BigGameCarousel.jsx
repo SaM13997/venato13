@@ -11,9 +11,6 @@ import 'swiper/css/effect-fade'
 import { Navigation, EffectFade } from 'swiper/modules'
 
 function BigGameCarousel({ data }) {
-	// console.log(data)
-	// const games = JSON?.parse(data)?.data?.results
-	// console.log(JSON.parse(data.value).data)
 	const filteredGames = getGamesFromQuery(data.data.results)
 	return (
 		<Swiper

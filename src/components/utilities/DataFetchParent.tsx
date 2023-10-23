@@ -15,13 +15,8 @@ async function DataFetchParent(props: Props) {
 	let data
 
 	try {
-		const res = await fetch(
-			process.env.NODE_ENV === 'development'
-				? `http://localhost:3000${queryUrl}`
-				: `https://venato13.vercel.app${queryUrl}`
-		)
+		const res = await fetch(`${process.env.URL}${queryUrl}`)
 		data = await res.json()
-		// Continue processing jsonData
 	} catch (error) {
 		console.error('Error parsing JSON:', error)
 	}
