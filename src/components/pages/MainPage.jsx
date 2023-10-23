@@ -33,7 +33,7 @@ function Main() {
 			headingText: 'Nintendo Exclusives',
 		},
 	]
-	// these platform queries dont work cause the API is shit, refactor to use the IGDB for this part
+
 	return (
 		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
 			<div className=" main-carousel rounded-xl ">
