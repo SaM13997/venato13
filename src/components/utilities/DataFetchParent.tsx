@@ -1,7 +1,6 @@
 import GameCardCarousel from '../GameCards/GameCardCarousel'
 import BigGameCarousel from '@/components/BigGameCard/BigGameCarousel'
 import PortraitCoverGameCardCarousel from '@/components/PortraitCoverGameCard/PortraitCoverGameCardCarousel'
-export const dynamic = 'force-dynamic'
 
 type Props = {
 	category: {
@@ -16,7 +15,11 @@ async function DataFetchParent(props: Props) {
 	let data
 
 	try {
-		const res = await fetch(`${process.env.URL}${queryUrl}`)
+		const res = await fetch(
+			process.env.NODE_ENV === 'development'
+				? `http://localhost:3000${queryUrl}`
+				: `https://venato13.vercel.app${queryUrl}`
+		)
 		data = await res.json()
 	} catch (error) {
 		console.error('Error parsing JSON:', error)
