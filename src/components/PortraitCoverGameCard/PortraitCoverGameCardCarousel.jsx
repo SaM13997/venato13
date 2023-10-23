@@ -9,6 +9,9 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 function PortraitCoverGameCardCarousel({ data, headingText }) {
+	if (!data) {
+		return <p>Error, cant load games</p>
+	}
 	return (
 		<div className="px-1">
 			<p className="mb-1 mt-4 text-3xl">{headingText}</p>
@@ -24,7 +27,7 @@ function PortraitCoverGameCardCarousel({ data, headingText }) {
 					},
 				}}
 			>
-				{data.map((game, index) => (
+				{data?.map((game, index) => (
 					<SwiperSlide key={index}>
 						<PortraitCoverGameCard game={game} />
 					</SwiperSlide>

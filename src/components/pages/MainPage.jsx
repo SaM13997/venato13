@@ -1,7 +1,5 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import BigGameCarousel from '../BigGameCard/BigGameCarousel'
-import PortraitCoverGameCardCarousel from '@/components/PortraitCoverGameCard/PortraitCoverGameCardCarousel'
 import DataFetchParent from '@/components/utilities/DataFetchParent'
 
 function Main() {
@@ -48,12 +46,12 @@ function Main() {
 			</div>
 
 			<div className="">
-				{mainPageCategoriesArray.map((category, index) => {
+				{mainPageCategoriesArray?.map((category, index) => {
 					return <DataFetchParent category={category} key={index} />
 				})}
 			</div>
 			<div className="IGDB mt-4 max-h-fit">
-				{mainPageIGDBPlatformsArray.map((category, index) => {
+				{mainPageIGDBPlatformsArray?.map((category, index) => {
 					return <DataFetchParent key={index} category={category} />
 				})}
 			</div>

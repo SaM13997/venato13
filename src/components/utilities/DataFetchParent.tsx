@@ -12,12 +12,19 @@ type Props = {
 
 async function DataFetchParent(props: Props) {
 	const { componentType, queryUrl, headingText } = props.category
-	const res = await fetch(
-		process.env.NODE_ENV === 'development'
-			? `http://localhost:3000${queryUrl}`
-			: `https://venato13.vercel.app${queryUrl}`
-	)
-	const data = await res.json()
+	let data
+
+	try {
+		const res = await fetch(
+			process.env.NODE_ENV === 'development'
+				? `http://localhost:3000${queryUrl}`
+				: `https://venato13.vercel.app${queryUrl}`
+		)
+		data = await res.json()
+		// Continue processing jsonData
+	} catch (error) {
+		console.error('Error parsing JSON:', error)
+	}
 
 	switch (componentType) {
 		case 'GameCardCarousel':
