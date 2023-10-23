@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import StarRating from '@/components/utilities/StarRating'
 import { MetacriticSquare } from '@/components/utilities/UtilityComponents'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const GameCardCenterStage = ({ game }) => {
 	let { id, slug, name, bgImage, rating, metacritic, released } = game
@@ -18,12 +19,19 @@ const GameCardCenterStage = ({ game }) => {
 				className={`flex h-[40vh] w-full overflow-visible p-1 pt-[2px] sm:h-[77.5vh] sm:p-2 sm:pt-[2px]`}
 			>
 				<div
-					style={{
-						backgroundImage: `url(${bgImage})`,
-						borderRadius: '16px',
-					}}
-					className={` game-card-content flex h-full w-full text-white ${style.bgimage} overflow-hidden outline outline-2 outline-amber-500/70`}
+					// style={{
+					// 	backgroundImage: `url(${bgImage})`,
+					// 	borderRadius: '16px',
+					// }}
+					className={` game-card-content flex h-full w-full text-white ${style.bgimage} overflow-hidden rounded-xl outline outline-2 outline-amber-500/70`}
 				>
+					<Image
+						width={710}
+						height={1460}
+						className="absolute inset-0 h-full w-full rounded-xl object-cover"
+						alt={`${name}'s cover image`}
+						src={bgImage}
+					/>
 					<div className="z-10 w-full">
 						<div className="left flex h-full max-w-[1000px] flex-col items-start justify-end gap-4  ">
 							<div className="flex flex-col items-start gap-2 rounded-bl-2xl rounded-tr-2xl bg-black bg-opacity-50 bg-clip-padding p-2 pb-0 pl-3 pr-4 shadow-lg backdrop-blur-md backdrop-filter sm:p-4 sm:px-6">
