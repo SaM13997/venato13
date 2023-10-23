@@ -37,6 +37,14 @@ body {
 	}
 }
 
+/*! The workaround I had before adding autoHeight: true to the swiper config */
+
+/* @media screen and (min-width: 640px) {
+	.IGDB .swiper-slide {
+		height: 488px !important;
+	}
+} */
+
 main::-webkit-scrollbar {
 	display: none;
 }
