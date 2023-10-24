@@ -21,6 +21,7 @@ const GameCardCarousel = ({ data, headingText }) => {
 				<Swiper
 					navigation={true}
 					modules={[Navigation]}
+					spaceBetween={5}
 					breakpoints={{
 						768: {
 							slidesPerView: 2,
@@ -34,7 +35,7 @@ const GameCardCarousel = ({ data, headingText }) => {
 					}}
 				>
 					{filteredGames?.map((game, index) => (
-						<SwiperSlide key={index}>
+						<SwiperSlide className="md:max-w-[367px]" key={index}>
 							<GameCard game={game} />
 						</SwiperSlide>
 					))}

@@ -19,11 +19,7 @@ const GameCardCenterStage = ({ game }) => {
 				className={`flex h-[40vh] w-full overflow-visible p-1 pt-[2px] sm:h-[77.5vh] sm:p-2 sm:pt-[2px]`}
 			>
 				<div
-					// style={{
-					// 	backgroundImage: `url(${bgImage})`,
-					// 	borderRadius: '16px',
-					// }}
-					className={` game-card-content flex h-full w-full text-white ${style.bgimage} overflow-hidden rounded-xl outline outline-2 outline-amber-500/70`}
+					className={` game-card-content flex h-full w-full overflow-hidden rounded-xl text-white outline outline-2 outline-amber-500/70`}
 				>
 					<Image
 						width={710}
