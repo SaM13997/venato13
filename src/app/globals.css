@@ -4,27 +4,12 @@
 
 body {
 	background-color: #0f0f0f;
+	height: 100dvh;
 }
 
 /* .main-carousel > div > div:last-child {
 	display: none;
 } */
-
-.glider-next,
-.glider-prev {
-	width: 46px !important;
-	padding-bottom: 4px !important;
-	top: 45% !important;
-	background: #000 !important;
-	border-radius: 50px !important;
-	border: 1px solid gray !important;
-	left: 20px !important;
-}
-
-.glider-next {
-	left: auto !important;
-	right: 20px !important;
-}
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -36,14 +21,6 @@ body {
 		border-radius: 100px;
 	}
 }
-
-/*! The workaround I had before adding autoHeight: true to the swiper config */
-
-/* @media screen and (min-width: 640px) {
-	.IGDB .swiper-slide {
-		height: 488px !important;
-	}
-} */
 
 main::-webkit-scrollbar {
 	display: none;

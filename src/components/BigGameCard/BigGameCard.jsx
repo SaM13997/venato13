@@ -7,6 +7,10 @@ import Image from 'next/image'
 
 const GameCardCenterStage = ({ game }) => {
 	let { id, slug, name, bgImage, rating, metacritic, released } = game
+	let parcel = {
+		id,
+		api: 'rawg',
+	}
 
 	const releasedDate = new Date(released).toLocaleString('en-us', {
 		month: 'long',
@@ -14,12 +18,12 @@ const GameCardCenterStage = ({ game }) => {
 	})
 
 	return (
-		<Link href={`/${game.id}?api=rawg`}>
+		<Link href={`/${id}?api=rawg`}>
 			<div
 				className={`flex h-[40vh] w-full overflow-visible p-1 pt-[2px] sm:h-[77.5vh] sm:p-2 sm:pt-[2px]`}
 			>
 				<div
-					className={` game-card-content flex h-full w-full overflow-hidden rounded-xl text-white outline outline-2 outline-amber-500/70`}
+					className={` game-card-content relative flex h-full w-full overflow-hidden rounded-xl text-white outline outline-2 outline-amber-500/70`}
 				>
 					<Image
 						width={710}
