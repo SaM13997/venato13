@@ -20,7 +20,7 @@ const GameCardCenterStage = ({ game }) => {
 	return (
 		<Link href={`/${id}?api=rawg`}>
 			<div
-				className={`flex h-[40vh] w-full overflow-visible p-1 pt-[2px] sm:h-[77.5vh] sm:p-2 sm:pt-[2px]`}
+				className={` flex h-[40vh] w-full overflow-visible p-1 pt-[2px] sm:h-[77.5vh] sm:pt-[2px]`}
 			>
 				<div
 					className={` game-card-content relative flex h-full w-full overflow-hidden rounded-xl text-white outline outline-2 outline-amber-500/70`}
@@ -28,6 +28,7 @@ const GameCardCenterStage = ({ game }) => {
 					<Image
 						width={710}
 						height={1460}
+						quality={100}
 						className="absolute inset-0 h-full w-full rounded-xl object-cover"
 						alt={`${name}'s cover image`}
 						src={bgImage}

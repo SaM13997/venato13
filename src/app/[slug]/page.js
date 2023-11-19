@@ -1,5 +1,6 @@
 import React from 'react'
 import { NextRequest } from 'next/server'
+import Game from '@/components/Game/Game'
 
 async function getIGDBData(gameID) {
 	const res = await import('@/app/api/igdbGameSearch/route')
@@ -24,10 +25,9 @@ export default async function Slug({ params, searchParams }) {
 		data = await getIGDBData(gameID)
 	}
 	return (
-		<div className="h-full  bg-slate-700">
-			{gameID}
-			{api === 'rawg' ? JSON.stringify(data.data) : JSON.stringify(data)}
-			{/* //! Implement the <GameDetails /> component */}
+		<div className="h-full">
+			{/* {api === 'rawg' ? JSON.stringify(data.data) : JSON.stringify(data)} */}
+			<Game game={data} />
 			{/* {api === 'rawg' ? (
 				<GameDetails game={data.data} />
 			) : (

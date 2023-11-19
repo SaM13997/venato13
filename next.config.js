@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['images.igdb.com', 'img.freepik.com', 'media.rawg.io'],
+		remotePatterns: [
+			{
+				hostname: 'images.igdb.com',
+			},
+			{
+				hostname: 'img.freepik.com',
+			},
+			{
+				hostname: 'media.rawg.io',
+			},
+		],
 	},
 }
 

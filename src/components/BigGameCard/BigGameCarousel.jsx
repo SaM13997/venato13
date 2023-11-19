@@ -1,7 +1,6 @@
 'use client'
 
 import GameCardCenterStage from './BigGameCard'
-import Carousel from 'react-material-ui-carousel'
 import { getGamesFromQuery } from '@/components/utilities/utilities'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -11,7 +10,7 @@ import 'swiper/css/effect-fade'
 import { Navigation, EffectFade } from 'swiper/modules'
 
 function BigGameCarousel({ data }) {
-	const filteredGames = getGamesFromQuery(data.data.results)
+	const filteredGames = getGamesFromQuery(data.results)
 	return (
 		<Swiper
 			navigation={true}

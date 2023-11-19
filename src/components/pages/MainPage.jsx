@@ -35,7 +35,7 @@ function Main() {
 	]
 
 	return (
-		<div className="mx-auto min-h-screen max-w-[1500px] px-4 ">
+		<div className=" min-h-screen max-w-[1600px] pl-6">
 			<div className=" main-carousel rounded-xl ">
 				<DataFetchParent
 					category={{
