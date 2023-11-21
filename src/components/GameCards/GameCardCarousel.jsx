@@ -35,7 +35,7 @@ const GameCardCarousel = ({ data, headingText }) => {
 					}}
 				>
 					{filteredGames?.map((game, index) => (
-						<SwiperSlide className="md:max-w-[367px]" key={index}>
+						<SwiperSlide key={index}>
 							<GameCard game={game} />
 						</SwiperSlide>
 					))}
