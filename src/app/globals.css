@@ -38,6 +38,21 @@ body {
 			'sidebar main';
 	}
 }
+
+.Game::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+	background-color: #1f181800;
+}
+
+.Game::-webkit-scrollbar {
+	width: 12px;
+	background-color: #1f181800;
+}
+
+.Game::-webkit-scrollbar-thumb {
+	@apply bg-amber-500;
+	border-radius: 30px;
+}
 @layer base {
 	:root {
 		--background: 0 0% 100%;
