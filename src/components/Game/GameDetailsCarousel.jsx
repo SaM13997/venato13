@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Thumbs } from 'swiper/modules'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/effect-fade'
@@ -14,13 +14,15 @@ export default function GameDetailsCarousel({ screenshots }) {
 		<main>
 			<Swiper
 				className="mb-4"
+				spaceBetween={1}
 				modules={[Thumbs, Navigation]}
 				thumbs={{ swiper: thumbsSwiper }}
+				navigation={true}
 			>
 				{screenshots?.map((ss, index) => (
-					<SwiperSlide key={index}>
+					<SwiperSlide className="w-full" key={index}>
 						<img
-							className="rounded-xl"
+							className="GameDetailCarouselScreenshot w-full rounded-xl"
 							src={ss}
 							alt={`game's screenshot #${index + 1}`}
 						/>
@@ -29,16 +31,17 @@ export default function GameDetailsCarousel({ screenshots }) {
 			</Swiper>
 
 			<Swiper
-				slidesPerView={screenshots.length > 5 ? 5 : screenshots.length}
+				// slidesPerView={screenshots.length > 5 ? 5 : screenshots.length}
+				slidesPerView="auto"
 				spaceBetween={5}
-				modules={[Thumbs]}
+				modules={[Thumbs, FreeMode]}
 				watchSlidesProgress
 				onSwiper={setThumbsSwiper}
 			>
 				{screenshots?.map((ss, index) => (
-					<SwiperSlide key={index}>
+					<SwiperSlide className="max-w-fit" key={index}>
 						<img
-							className="w-36 rounded-lg"
+							className="GameDetailCarouselScreenshot w-36 rounded-lg"
 							src={ss}
 							alt={`game's screenshot #${index + 1}`}
 						/>

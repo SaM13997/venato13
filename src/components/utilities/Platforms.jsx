@@ -4,6 +4,7 @@ import { GrAppleAppStore } from 'react-icons/gr'
 import { BsAndroid2, BsNintendoSwitch } from 'react-icons/bs'
 import { SiAtari } from 'react-icons/si'
 import { TbWorldWww } from 'react-icons/tb'
+import clsx from 'clsx'
 // Todo: <MdGames /> for consoles category in navbar; for future ref
 
 const platformToIconMap = {
@@ -28,10 +29,15 @@ const platformToIconMap = {
 	167: () => <FaPlaystation />,
 }
 
-function Platforms({ platforms }) {
+function Platforms({ platforms, iconClassName = '', className = '' }) {
 	return (
-		<div className="flex w-full items-center justify-between">
-			<div className="flex max-w-fit items-center gap-2 rounded-full bg-slate-200 p-2 px-6 text-slate-800">
+		<div className={clsx(className, 'flex w-full items-center')}>
+			<div
+				className={clsx(
+					iconClassName,
+					'flex max-w-fit items-center gap-2 rounded-full bg-slate-200 p-2 px-6  text-slate-800'
+				)}
+			>
 				{Array.isArray(platforms) ? (
 					platforms.map((platform, index) => {
 						const IconComponent = platformToIconMap[platform]

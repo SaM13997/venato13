@@ -2,25 +2,24 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { BsStarHalf } from 'react-icons/bs'
 import React from 'react'
 import { cn } from '@/lib/utils'
+import clsx from 'clsx'
 
-export default function StarRating(props) {
-	const { rating, className } = props
-	const fullStars = Math.round(rating)
-	const halfStars = Math.round((rating - fullStars) * 2)
-	const emptyStars = 5 - fullStars - halfStars
-
-	const starList = []
-	for (let i = 0; i < fullStars; i++) {
-		starList.push(<AiFillStar color="white" key={`fullStar-${i}`} />)
-	}
-	for (let i = 0; i < halfStars; i++) {
-		starList.push(<BsStarHalf color="white" key={`halfStar-${i}`} />)
-	}
-	for (let i = 0; i < emptyStars; i++) {
-		starList.push(<AiOutlineStar key={`emptyStar-${i}`} />)
-	}
+const StarRating = ({ rating, className = '' }) => {
+	const fullStars = Math.floor(rating)
+	const halfStar = rating - fullStars >= 0.5 ? 1 : 0
+	const emptyStars = 5 - fullStars - halfStar
 
 	return (
-		<div className={cn('ratings flex text-2xl', className)}>{starList}</div>
+		<div className={clsx(className, 'flex items-center text-2xl')}>
+			{[...Array(fullStars)].map((star, i) => (
+				<AiFillStar key={i} />
+			))}
+			{halfStar ? <BsStarHalf /> : null}
+			{[...Array(emptyStars)].map((star, i) => (
+				<AiOutlineStar key={i + fullStars + halfStar} />
+			))}
+		</div>
 	)
 }
+
+export default StarRating

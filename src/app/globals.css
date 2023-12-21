@@ -53,6 +53,28 @@ body {
 	@apply bg-amber-500;
 	border-radius: 30px;
 }
+
+.GameDetailCarouselScreenshot {
+	user-select: none;
+}
+p {
+	@apply selection:bg-amber-400 selection:text-zinc-700;
+}
+
+.swiper-container {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.swiper-slide {
+	width: 100%;
+}
+
+.swiper-container,
+.swiper-slide {
+	box-sizing: border-box;
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;

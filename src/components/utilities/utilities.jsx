@@ -1,6 +1,6 @@
 // import { Input, Avatar } from '@nextui-org/react'
 
-const platformsArrayCreator = (platformParentArray) => {
+export const platformsArrayCreator = (platformParentArray) => {
 	if (platformParentArray) {
 		return platformParentArray.map((entry) => {
 			return entry?.platform?.name
