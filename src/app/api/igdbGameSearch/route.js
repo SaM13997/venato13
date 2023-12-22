@@ -13,7 +13,7 @@ export async function GET(req, res) {
 			'Client-ID': client_id,
 			Authorization: auth_token,
 		}
-		const bodyContent = `fields name, platforms, aggregated_rating, cover.image_id;where id = ${gameID};limit 10;`
+		const bodyContent = `fields name, platforms, first_release_date, genres.*, summary, websites.*, aggregated_rating, total_rating,  cover.image_id, screenshots.*;where id = ${gameID};limit 10;`
 
 		try {
 			const response = await fetch(url, {
