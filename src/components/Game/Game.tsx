@@ -6,11 +6,11 @@ import StarRating from '../utilities/StarRating'
 import { MetacriticSquare } from '../utilities/UtilityComponents'
 import GameDetailsCarousel from './GameDetailsCarousel'
 import { platformsArrayCreator } from '../utilities/utilities'
-import { get } from 'http'
 import dayjs from 'dayjs'
-type GameProps = {
-	game: Record<string, unknown>
-}
+// type GameProps = {
+// 	game: Record<string, object> | Array<Record<string, unknown>>
+// 	api: string
+// }
 
 async function getScreenshotsFromRawg(gameID: string) {
 	const key = process.env.RawgAPIKey
@@ -27,6 +27,8 @@ function getScreenshotsFromIGDB(screenshots: Array<Record<string, unknown>>) {
 		return `https://images.igdb.com/igdb/image/upload/t_1080p/${screenshot.image_id}.jpg`
 	})
 }
+
+// !Todo - Add animations, move desc. to below the carousel, add genre chips in the info section, add
 
 async function Game(props: any) {
 	const game = {
