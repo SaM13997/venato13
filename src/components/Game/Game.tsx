@@ -11,7 +11,6 @@ import dayjs from 'dayjs'
 // 	game: Record<string, object> | Array<Record<string, unknown>>
 // 	api: string
 // }
-
 async function getScreenshotsFromRawg(gameID: string) {
 	const key = process.env.RawgAPIKey
 	const response = await fetch(
