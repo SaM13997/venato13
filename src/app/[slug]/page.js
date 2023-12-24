@@ -24,7 +24,6 @@ export default async function Slug({ params, searchParams }) {
 	} else {
 		data = await getIGDBData(gameID)
 	}
-	console.log(data)
 	return (
 		<div className="h-full">
 			{/* {api === 'rawg' ? JSON.stringify(data.data) : JSON.stringify(data)} */}
