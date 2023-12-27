@@ -7,10 +7,10 @@ import { MetacriticSquare } from '../utilities/UtilityComponents'
 import GameDetailsCarousel from './GameDetailsCarousel'
 import { platformsArrayCreator } from '../utilities/utilities'
 import dayjs from 'dayjs'
-type GameProps = {
-	game: Record<string, object> | Array<Record<string, unknown>>
-	api: string
-}
+// type GameProps = {
+// 	game: Record<string, object> | Array<Record<string, unknown>>
+// 	api: string
+// }
 
 async function getScreenshotsFromRawg(gameID: string) {
 	const key = process.env.RawgAPIKey
