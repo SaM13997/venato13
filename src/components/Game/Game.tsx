@@ -81,7 +81,7 @@ async function Game(props: any) {
 						/>
 					</Link>
 				</div>
-				<div className="wrapper mt-4 flex h-full">
+				<div className="wrapper mt-5 flex h-full">
 					<div className="preview-container flex w-3/4 flex-col pr-2">
 						<div className="screenshot">
 							<GameDetailsCarousel screenshots={game?.screenshots} />
