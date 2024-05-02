@@ -29,6 +29,7 @@ async function DataFetchParent(props: Props) {
 		data = await getData(queryUrl)
 	} catch (error) {
 		console.error('Error parsing JSON:', error)
+		return <div>Error fetching data</div>
 	}
 
 	switch (componentType) {

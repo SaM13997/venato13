@@ -20,7 +20,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" className={ubuntu.className}>
+		<html lang="en">
 			<body className=" flex h-screen flex-col ">
 				<Providers>{children}</Providers>
 			</body>
