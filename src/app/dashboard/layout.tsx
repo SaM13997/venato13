@@ -1,7 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import { auth, clerkClient } from '@clerk/nextjs/server'
+import Navbar from '@/components/shared/Navbar'
 import Sidebar from '@/components/Sidebar/Sidebar'
 
 async function GameLayout({ children }: { children: React.ReactNode }) {

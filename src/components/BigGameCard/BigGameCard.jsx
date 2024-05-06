@@ -29,6 +29,7 @@ const GameCardCenterStage = ({ game }) => {
 						width={1080}
 						height={1920}
 						quality={100}
+						priority={true}
 						className="absolute inset-0 h-full w-full rounded-xl object-cover"
 						alt={`${name}'s cover image`}
 						src={bgImage}

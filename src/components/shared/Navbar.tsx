@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import {
 	RegisterLink,
@@ -5,12 +6,13 @@ import {
 } from '@kinde-oss/kinde-auth-nextjs/components'
 import DrawerSidebar from '@/components/DrawerSidebar'
 import { SearchBar } from '@/components/utilities/UtilityComponents'
+import UserAvatar from '@/components/shared/UserAvatar'
 import Link from 'next/link'
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
 
-async function Navbar() {
-	const { getUser } = getKindeServerSession()
-	const user = await getUser()
+function Navbar() {
+	const { user, isLoading } = useKindeBrowserClient()
+	console.log({ user })
 	return (
 		<header className="col-span-2 row-start-1 flex items-center justify-between gap-3 p-3 px-6 shadow-md shadow-zinc-800">
 			<div className="flex items-center gap-4">
@@ -24,8 +26,10 @@ async function Navbar() {
 			</div>
 			<SearchBar />
 
-			{user ? (
-				user.given_name
+			{isLoading ? (
+				<p>Loading...</p>
+			) : user ? (
+				<UserAvatar user={user} />
 			) : (
 				<div className="flex gap-4">
 					<LoginLink>Sign in</LoginLink>
