@@ -9,14 +9,12 @@ function Providers({ children }) {
 	const queryClient = new QueryClient()
 
 	return (
-		<ClerkProvider>
-			<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-				<QueryClientProvider client={queryClient}>
-					{children}
-					<ReactQueryDevtools initialIsOpen={false} />
-				</QueryClientProvider>
-			</ThemeProvider>
-		</ClerkProvider>
+		<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+			<QueryClientProvider client={queryClient}>
+				{children}
+				<ReactQueryDevtools initialIsOpen={false} />
+			</QueryClientProvider>
+		</ThemeProvider>
 	)
 }
 

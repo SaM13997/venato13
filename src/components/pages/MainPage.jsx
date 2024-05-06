@@ -1,7 +1,6 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import DataFetchParent from '@/components/utilities/DataFetchParent'
-
 function Main() {
 	const today = dayjs().format('YYYY-MM-DD')
 	const mainPageCategoriesArray = [
@@ -35,25 +34,27 @@ function Main() {
 	]
 
 	return (
-		<div className=" min-h-screen max-w-[1600px] pl-6">
-			<div className=" main-carousel rounded-xl ">
-				<DataFetchParent
-					category={{
-						componentType: 'BigGameCarousel',
-						queryUrl: `/api/games?today=${today}`,
-					}}
-				/>
-			</div>
+		<div className="h-full overflow-clip rounded-xl">
+			<div className="Game flex h-full w-full max-w-[1600px] flex-col overflow-y-scroll">
+				<div className=" main-carousel rounded-xl ">
+					<DataFetchParent
+						category={{
+							componentType: 'BigGameCarousel',
+							queryUrl: `/api/games?today=${today}`,
+						}}
+					/>
+				</div>
 
-			<div className="">
-				{mainPageCategoriesArray?.map((category, index) => {
-					return <DataFetchParent category={category} key={index} />
-				})}
-			</div>
-			<div className="IGDB mt-4 max-h-fit">
-				{mainPageIGDBPlatformsArray?.map((category, index) => {
-					return <DataFetchParent key={index} category={category} />
-				})}
+				<div className="">
+					{mainPageCategoriesArray?.map((category, index) => {
+						return <DataFetchParent category={category} key={index} />
+					})}
+				</div>
+				<div className="IGDB mt-4 max-h-fit">
+					{mainPageIGDBPlatformsArray?.map((category, index) => {
+						return <DataFetchParent key={index} category={category} />
+					})}
+				</div>
 			</div>
 		</div>
 	)

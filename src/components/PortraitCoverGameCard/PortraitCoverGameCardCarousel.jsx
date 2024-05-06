@@ -13,7 +13,7 @@ function PortraitCoverGameCardCarousel({ data, headingText }) {
 		return <p>Error, cant load games</p>
 	}
 	return (
-		<div className="px-1">
+		<div className="">
 			<p className="mb-1 mt-4 text-3xl">{headingText}</p>
 			<hr className="mb-1 h-2 w-1/5" />
 			<Swiper

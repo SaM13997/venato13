@@ -22,14 +22,14 @@ body {
 	display: none;
 }
 
-.parent-wrapper {
+/* .parent-wrapper {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 64px 1fr;
 	grid-template-areas:
 		'header'
 		'main';
-	min-height: 100vh;
+	min-height: 100dvh;
 	@media (min-width: 1024px) {
 		grid-template-columns: 348px 1fr;
 		grid-template-rows: 64px 1fr;
@@ -37,21 +37,31 @@ body {
 			'header header'
 			'sidebar main';
 	}
-}
+} */
 
 .Game::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 	background-color: #1f181800;
+	@media screen and (max-width: 640px) {
+		display: none;
+	}
 }
 
 .Game::-webkit-scrollbar {
 	width: 12px;
 	background-color: #1f181800;
+	@media screen and (max-width: 640px) {
+		display: none;
+	}
 }
 
 .Game::-webkit-scrollbar-thumb {
 	@apply bg-amber-500;
 	border-radius: 30px;
+	@media screen and (max-width: 640px) {
+		display: none;
+		@apply bg-red-500;
+	}
 }
 
 .GameDetailCarouselScreenshot {

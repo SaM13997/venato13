@@ -56,7 +56,7 @@ export const MetacriticSquare = ({ score, className = '' }) => {
 	return (
 		<div
 			className={cn(
-				'square flex items-center justify-center rounded-bl-md p-4 text-xl shadow-md shadow-slate-500',
+				'square flex items-center justify-center rounded-bl-md p-4 text-xl',
 				className
 			)}
 			style={{
